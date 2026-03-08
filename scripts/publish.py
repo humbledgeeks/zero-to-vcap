@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """
 publish.py — Zero to VCAP Blog Publisher
-Converts a Markdown blog post to a WordPress draft with AI-generated images.
+Converts a Markdown blog post to a WordPress draft with tags, SEO fields,
+category assignment, and optional AI-generated images.
 
 Usage:
     python scripts/publish.py blog-posts/my-post.md
     python scripts/publish.py blog-posts/my-post.md --no-images
+    python scripts/publish.py blog-posts/my-post.md --no-images --tags "vSAN,NSX,Lab"
 """
 
 import argparse
@@ -23,12 +25,57 @@ from openai import OpenAI, OpenAIError
 
 
 # ---------------------------------------------------------------------------
+# Tags & SEO Config
+# ---------------------------------------------------------------------------
+
+# Always applied to every Zero to VCAP post
+SERIES_TAGS = [
+    "VMware",
+    "Broadcom",
+    "VCF",
+    "VCAP",
+    "VMware Cloud Foundation",
+    "Certification",
+    "Zero to VCAP",
+    "VCAP-VCF",
+    "Private Cloud",
+    "HumbledGeeks",
+]
+
+# Keyword → tag: auto-detected from post title + body
+AUTO_TAG_MAP = {
+    "vcffi9": "VCFFI9",
+    "vsp": "VSP",
+    "vtsp": "VTSP",
+    "sddc": "SDDC Manager",
+    "nsx": "NSX",
+    "vsan": "vSAN",
+    "vsphere": "vSphere",
+    "vcenter": "vCenter",
+    "hands-on lab": "Hands-On Labs",
+    " hol ": "Hands-On Labs",
+    "blueprint": "Certification Blueprint",
+    "vmug": "VMUG",
+    "esxi": "ESXi",
+    "ansible": "Ansible",
+    "powershell": "PowerShell",
+    "automation": "Automation",
+    "lab on demand": "Lab On Demand",
+    "sddc manager": "SDDC Manager",
+    "lifecycle": "Lifecycle Management",
+}
+
+SERIES_CATEGORY = "Zero to VCAP"
+SEO_EXCERPT_MAX_CHARS = 155
+
+
+# ---------------------------------------------------------------------------
 # Config & Auth
 # ---------------------------------------------------------------------------
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Publish a Markdown blog post to WordPress with AI-generated images."
+        description="Publish a Markdown blog post to WordPress with tags, SEO, and optional AI images."
     )
     parser.add_argument("filepath", help="Path to the Markdown file to publish")
     parser.add_argument(
@@ -36,23 +83,29 @@ def parse_args():
         action="store_true",
         help="Skip image generation and publish text-only draft",
     )
+    parser.add_argument(
+        "--tags",
+        default="",
+        help="Comma-separated list of extra tags to add (e.g. 'vSAN,NSX,Lab')",
+    )
     return parser.parse_args()
 
 
-def load_config():
+def load_config(require_openai=True):
     load_dotenv()
     required = [
         "WORDPRESS_URL",
         "WORDPRESS_USERNAME",
         "WORDPRESS_APP_PASSWORD",
-        "OPENAI_API_KEY",
     ]
+    if require_openai:
+        required.append("OPENAI_API_KEY")
     missing = [key for key in required if not os.getenv(key)]
     if missing:
         print(f"[error] Missing required environment variables: {', '.join(missing)}")
         print("        Copy .env.example to .env and fill in your credentials.")
         sys.exit(1)
-    return {key: os.getenv(key) for key in required}
+    return {key: os.getenv(key) for key in required + ["OPENAI_API_KEY"]}
 
 
 def build_wp_headers(username, app_password):
@@ -169,6 +222,39 @@ def parse_markdown(filepath):
     h2_sections = re.findall(r'^##\s+(.+)', body_md, re.MULTILINE)
 
     return title, body_html, h2_sections
+
+
+# ---------------------------------------------------------------------------
+# SEO Helpers
+# ---------------------------------------------------------------------------
+
+def extract_excerpt(body_html, max_chars=SEO_EXCERPT_MAX_CHARS):
+    """Pull plain text from the first paragraph for use as meta description."""
+    match = re.search(r'<p>(.*?)</p>', body_html, re.DOTALL)
+    if not match:
+        return ""
+    text = re.sub(r'<[^>]+>', '', match.group(1)).strip()
+    if len(text) > max_chars:
+        text = text[:max_chars].rsplit(' ', 1)[0] + "…"
+    return text
+
+
+def detect_content_tags(title, body_html):
+    """Return tags based on keywords found in the post title and body."""
+    combined = (title + " " + re.sub(r'<[^>]+>', '', body_html)).lower()
+    detected = []
+    for keyword, tag in AUTO_TAG_MAP.items():
+        if keyword in combined:
+            detected.append(tag)
+    return detected
+
+
+def slugify(title):
+    slug = title.lower()
+    slug = re.sub(r'[^\w\s-]', '', slug)
+    slug = re.sub(r'[\s_]+', '-', slug)
+    slug = re.sub(r'-+', '-', slug)
+    return slug.strip('-')
 
 
 # ---------------------------------------------------------------------------
@@ -304,17 +390,76 @@ def insert_inline_images(body_html, inline_image_map):
     return body_html
 
 
-def create_wp_draft(title, html_content, featured_media_id, wp_url, wp_headers):
+def resolve_or_create_tags(tag_names, wp_url, wp_headers):
+    """Resolve tag names to WP tag IDs, creating any that don't exist."""
+    json_headers = {**wp_headers, "Content-Type": "application/json"}
+    tag_ids = []
+    seen = set()
+    tags_url = f"{wp_url.rstrip('/')}/wp-json/wp/v2/tags"
+
+    for name in tag_names:
+        name = name.strip()
+        if not name or name.lower() in seen:
+            continue
+        seen.add(name.lower())
+
+        # Search for existing tag
+        resp = requests.get(tags_url, params={"search": name, "per_page": 10}, headers=wp_headers, timeout=15)
+        if resp.ok:
+            matches = [t for t in resp.json() if t["name"].lower() == name.lower()]
+            if matches:
+                tag_ids.append(matches[0]["id"])
+                continue
+
+        # Create new tag
+        create_resp = requests.post(tags_url, json={"name": name}, headers=json_headers, timeout=15)
+        if create_resp.ok:
+            tag_ids.append(create_resp.json()["id"])
+        else:
+            print(f"  [warn] Could not create tag '{name}': {create_resp.text[:200]}")
+
+    return tag_ids
+
+
+def resolve_or_create_category(name, wp_url, wp_headers):
+    """Resolve a category name to its WP ID, creating it if missing."""
+    json_headers = {**wp_headers, "Content-Type": "application/json"}
+    cats_url = f"{wp_url.rstrip('/')}/wp-json/wp/v2/categories"
+
+    resp = requests.get(cats_url, params={"search": name, "per_page": 10}, headers=wp_headers, timeout=15)
+    if resp.ok:
+        matches = [c for c in resp.json() if c["name"].lower() == name.lower()]
+        if matches:
+            return matches[0]["id"]
+
+    create_resp = requests.post(cats_url, json={"name": name}, headers=json_headers, timeout=15)
+    if create_resp.ok:
+        return create_resp.json()["id"]
+
+    print(f"  [warn] Could not resolve category '{name}': {create_resp.text[:200]}")
+    return None
+
+
+def create_wp_draft(title, html_content, excerpt, featured_media_id, tag_ids, category_ids, wp_url, wp_headers):
     url = f"{wp_url.rstrip('/')}/wp-json/wp/v2/posts"
-    headers = {**wp_headers, "Content-Type": "application/json"}
+    json_headers = {**wp_headers, "Content-Type": "application/json"}
     payload = {
         "title": title,
+        "slug": slugify(title),
         "content": html_content,
+        "excerpt": excerpt,
         "status": "draft",
         "featured_media": featured_media_id,
+        "tags": tag_ids,
+        "categories": category_ids,
+        "meta": {
+            # Yoast SEO fields (no-op if Yoast isn't installed)
+            "_yoast_wpseo_metadesc": excerpt,
+            "_yoast_wpseo_focuskw": "VMware Cloud Foundation VCAP certification",
+        },
     }
     try:
-        response = requests.post(url, json=payload, headers=headers, timeout=30)
+        response = requests.post(url, json=payload, headers=json_headers, timeout=30)
         response.raise_for_status()
     except requests.HTTPError as e:
         print(f"[error] WordPress post creation failed: {e}")
@@ -330,7 +475,7 @@ def create_wp_draft(title, html_content, featured_media_id, wp_url, wp_headers):
 
 def main():
     args = parse_args()
-    config = load_config()
+    config = load_config(require_openai=not args.no_images)
 
     filepath = Path(args.filepath)
     if not filepath.exists():
@@ -347,6 +492,24 @@ def main():
     title, body_html, h2_sections = parse_markdown(filepath)
     print(f"  Title    : {title}")
     print(f"  Sections : {h2_sections}")
+
+    # --- SEO Excerpt ---
+    excerpt = extract_excerpt(body_html)
+    print(f"  Excerpt  : {excerpt[:80]}...")
+
+    # --- Tags ---
+    extra_tags = [t.strip() for t in args.tags.split(",") if t.strip()] if args.tags else []
+    auto_tags = detect_content_tags(title, body_html)
+    all_tag_names = list(dict.fromkeys(SERIES_TAGS + auto_tags + extra_tags))  # dedup, preserve order
+    print(f"\nResolving tags: {all_tag_names}")
+    tag_ids = resolve_or_create_tags(all_tag_names, config["WORDPRESS_URL"], wp_headers)
+    print(f"  Tag IDs  : {tag_ids}")
+
+    # --- Category ---
+    print(f"\nResolving category: {SERIES_CATEGORY}")
+    cat_id = resolve_or_create_category(SERIES_CATEGORY, config["WORDPRESS_URL"], wp_headers)
+    category_ids = [cat_id] if cat_id else []
+    print(f"  Cat ID   : {cat_id}")
 
     featured_id = 0
     final_html = body_html
@@ -390,7 +553,7 @@ def main():
     # --- Create WordPress Draft ---
     print("\nCreating WordPress draft...")
     post_id, post_link = create_wp_draft(
-        title, final_html, featured_id,
+        title, final_html, excerpt, featured_id, tag_ids, category_ids,
         config["WORDPRESS_URL"], wp_headers,
     )
 
@@ -398,6 +561,8 @@ def main():
     print("  Done!")
     print(f"  Post ID  : {post_id}")
     print(f"  Preview  : {post_link}")
+    print(f"  Tags     : {len(tag_ids)} applied")
+    print(f"  Category : {SERIES_CATEGORY}")
     print("=" * 50 + "\n")
 
 
