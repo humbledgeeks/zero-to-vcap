@@ -1,4 +1,4 @@
-# Automating a Cisco UCS FlexPod Foundation for Broadcom VCF + NetApp ASA A30
+# Automating a Cisco UCS FlexPod with NetApp ASA A30 on Broadcom VCF
 
 *Tags: Cisco UCS, NetApp FlexPod, PowerShell, VMware Cloud Foundation, Broadcom VCF, Fibre Channel*
 
