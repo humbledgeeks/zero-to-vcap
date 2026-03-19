@@ -149,13 +149,22 @@ VM workload path and simplifies NSX transport zone configuration. All at MTU 150
 Every other script dot-sources this one. Run any section standalone without re-authenticating.
 
 ```powershell
-if (-not (Get-Module -ListAvailable -Name Cisco.UCS)) {
-    Install-Module Cisco.UCS -Scope CurrentUser -Force
+$requiredModules = @('Cisco.UCS.Common', 'Cisco.UCS.Core', 'Cisco.UCSManager')
+foreach ($mod in $requiredModules) {
+    if (-not (Get-Module -ListAvailable -Name $mod)) {
+        Install-Module $mod -Scope CurrentUser -Force -AllowClobber -AcceptLicense
+    }
+    Import-Module $mod -ErrorAction Stop
 }
-Import-Module Cisco.UCS -ErrorAction Stop
 
-$global:UcsHandle = Connect-Ucs -Name '10.x.x.x' -Credential (Get-Credential)
-$global:HgOrg     = Get-UcsOrg -Ucs $global:UcsHandle -Name 'HumbledGeeks' -Level sub-org
+# Non-interactive: set $env:UCSM_PASSWORD before running, or fall back to Get-Credential
+if ($env:UCSM_PASSWORD) {
+    $cred = New-Object PSCredential('admin', (ConvertTo-SecureString $env:UCSM_PASSWORD -AsPlainText -Force))
+} else {
+    $cred = Get-Credential -UserName 'admin' -Message 'Enter UCSM credentials'
+}
+$global:UcsHandle = Connect-Ucs -Name '10.x.x.x' -Credential $cred -NotDefault
+$global:HgOrg     = Get-UcsOrg -Ucs $global:UcsHandle | Where-Object { $_.Name -eq 'HumbledGeeks' }
 ```
 
 ---
