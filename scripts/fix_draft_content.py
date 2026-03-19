@@ -161,9 +161,11 @@ def convert_to_gutenberg_blocks(html):
                     f'<!-- /wp:image -->'
                 )
             else:
+                # Strip any <br /> from paragraphs (nl2br artifact or manual breaks)
+                clean = re.sub(r'<br\s*/?>\n?', ' ', element)
                 blocks.append(
                     f'<!-- wp:paragraph -->\n'
-                    f'{element}\n'
+                    f'{clean}\n'
                     f'<!-- /wp:paragraph -->'
                 )
 
@@ -177,8 +179,12 @@ def parse_markdown(filepath):
     body_md = re.sub(r'^#\s+.+\n?', '', raw, count=1, flags=re.MULTILINE).strip()
     # Remove frontmatter-style tags line if present
     body_md = re.sub(r'^\*Tags:.*?\*\s*\n?', '', body_md, flags=re.MULTILINE).strip()
-    converter = md_lib.Markdown(extensions=["tables", "fenced_code", "nl2br"])
-    body_html = convert_to_gutenberg_blocks(converter.convert(body_md))
+    # nl2br intentionally excluded — it inserts <br /> on every line break inside
+    # paragraphs which makes prose look jagged. Fenced code blocks are unaffected.
+    converter = md_lib.Markdown(extensions=["tables", "fenced_code"])
+    gutenberg = convert_to_gutenberg_blocks(converter.convert(body_md))
+    # Safety strip: remove any stray <br /> that leak into paragraph blocks
+    body_html = re.sub(r'<br\s*/?>\n?', ' ', gutenberg)
     return title, body_html
 
 
