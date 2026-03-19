@@ -135,6 +135,7 @@ def convert_to_gutenberg_blocks(html):
     pattern = re.compile(
         r'(<table>.*?</table>)'
         r'|(<blockquote>.*?</blockquote>)'
+        r'|(<pre[^>]*>.*?</pre>)'
         r'|(<ul>.*?</ul>)'
         r'|(<ol>.*?</ol>)'
         r'|(<h2[^>]*>.*?</h2>)'
@@ -160,6 +161,16 @@ def convert_to_gutenberg_blocks(html):
                 f'<!-- wp:quote -->\n'
                 f'<blockquote class="wp-block-quote">{inner_html}</blockquote>\n'
                 f'<!-- /wp:quote -->'
+            )
+
+        elif element.startswith('<pre'):
+            # Fenced code blocks — extract inner <code> content
+            code_match = re.search(r'<code[^>]*>(.*?)</code>', element, re.DOTALL)
+            code_content = code_match.group(1) if code_match else element
+            blocks.append(
+                f'<!-- wp:code -->\n'
+                f'<pre class="wp-block-code"><code>{code_content}</code></pre>\n'
+                f'<!-- /wp:code -->'
             )
 
         elif element.startswith('<ul>'):
@@ -195,11 +206,27 @@ def convert_to_gutenberg_blocks(html):
             )
 
         elif element.startswith('<p>'):
-            blocks.append(
-                f'<!-- wp:paragraph -->\n'
-                f'{element}\n'
-                f'<!-- /wp:paragraph -->'
-            )
+            # Paragraph containing only an image → proper wp:image block
+            img_only = re.match(r'^<p>\s*<img ([^>]+)/>\s*</p>$', element, re.DOTALL)
+            if img_only:
+                attrs = img_only.group(1)
+                src_m = re.search(r'src="([^"]+)"', attrs)
+                alt_m = re.search(r'alt="([^"]*)"', attrs)
+                src = src_m.group(1) if src_m else ''
+                alt = alt_m.group(1) if alt_m else ''
+                blocks.append(
+                    f'<!-- wp:image {{"sizeSlug":"large","linkDestination":"none"}} -->\n'
+                    f'<figure class="wp-block-image size-large">'
+                    f'<img src="{src}" alt="{alt}" class="wp-image"/>'
+                    f'</figure>\n'
+                    f'<!-- /wp:image -->'
+                )
+            else:
+                blocks.append(
+                    f'<!-- wp:paragraph -->\n'
+                    f'{element}\n'
+                    f'<!-- /wp:paragraph -->'
+                )
 
     return '\n\n'.join(blocks)
 
@@ -440,9 +467,13 @@ def resolve_or_create_category(name, wp_url, wp_headers):
     return None
 
 
-def create_wp_draft(title, html_content, excerpt, featured_media_id, tag_ids, category_ids, wp_url, wp_headers):
-    url = f"{wp_url.rstrip('/')}/wp-json/wp/v2/posts"
+def create_wp_draft(title, html_content, excerpt, featured_media_id, tag_ids, category_ids, wp_url, wp_headers, post_id=None):
+    """Create a new draft or update an existing one (pass post_id to update)."""
     json_headers = {**wp_headers, "Content-Type": "application/json"}
+    if post_id:
+        url = f"{wp_url.rstrip('/')}/wp-json/wp/v2/posts/{post_id}"
+    else:
+        url = f"{wp_url.rstrip('/')}/wp-json/wp/v2/posts"
     payload = {
         "title": title,
         "slug": slugify(title),
@@ -459,7 +490,10 @@ def create_wp_draft(title, html_content, excerpt, featured_media_id, tag_ids, ca
         },
     }
     try:
-        response = requests.post(url, json=payload, headers=json_headers, timeout=30)
+        if post_id:
+            response = requests.post(url, json=payload, headers=json_headers, timeout=30)
+        else:
+            response = requests.post(url, json=payload, headers=json_headers, timeout=30)
         response.raise_for_status()
     except requests.HTTPError as e:
         print(f"[error] WordPress post creation failed: {e}")
