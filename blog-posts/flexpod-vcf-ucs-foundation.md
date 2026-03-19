@@ -673,7 +673,111 @@ Add-UcsDnsServer -Ucs $h -Name '10.x.x.x' -ModifyPresent  # secondary DNS
 
 ---
 
-## Step 9 — Verify
+## Step 9 — Pre-Build FC Zoning (Before the ASA A30 Arrives)
+
+**Full script →** [`09-fc-zoning.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/09-fc-zoning.ps1)
+
+This is the part that trips people up: FC zoning feels like something you do *after* the
+storage is connected, but you can actually pre-build every zone before the ASA A30 is
+physically cabled. Here's why that works.
+
+### Why You Can Zone Before Cabling
+
+UCSM's FC zoning references endpoints by **WWPN** — and both sets of WWPNs are available
+before any hardware is physically connected:
+
+**ASA A30 target WWPNs** are fixed hardware addresses that don't change. Pull them from
+ONTAP's management interface (`storage port show`) or from NetApp System Manager under
+Storage → FC Ports before you ever touch a cable.
+
+**ESXi initiator WWPNs** come from the WWPN pools you defined in `01-pools.ps1`. Here's
+the key insight: **UCSM assigns WWPNs from the pool at service profile creation time, not
+at blade association.** The moment `07-deploy-service-profiles.ps1` runs and instantiates
+the 8 profiles, each vHBA gets a permanent WWPN from `hg-wwpn-a` and `hg-wwpn-b`. Those
+addresses don't change when you associate to a blade — the blade takes on the identity
+defined in the profile. This means you can read the initiator WWPNs out of UCSM today and
+write zones around them, even though no blade has been touched.
+
+### Single-Initiator Zoning (FlexPod Best Practice)
+
+The zone design is one zone per vHBA per fabric — 8 blades × 2 fabrics = **16 zones**.
+Each zone has exactly one initiator WWPN and all ASA A30 target WWPNs for that fabric:
+
+| Zone | Fabric | Initiator | Targets |
+|---|---|---|---|
+| `hg-esx-01-fab-a` | A | `20:00:00:25:B5:11:1A:01` | 4× ASA A30 Fabric A ports |
+| `hg-esx-01-fab-b` | B | `20:00:00:25:B5:11:1B:01` | 4× ASA A30 Fabric B ports |
+| `hg-esx-02-fab-a` | A | `20:00:00:25:B5:11:1A:02` | 4× ASA A30 Fabric A ports |
+| … | … | … | … |
+| `hg-esx-08-fab-b` | B | `20:00:00:25:B5:11:1B:08` | 4× ASA A30 Fabric B ports |
+
+Single-initiator zoning prevents one faulty initiator from disrupting other hosts' paths,
+and makes troubleshooting straightforward — if an ESXi host loses storage, you look at
+exactly two zones.
+
+### Cabling Assumption
+
+The script assumes standard FlexPod HA-pair cabling:
+
+| ASA A30 Port | FI Port | Fabric |
+|---|---|---|
+| ASA30-01 port 1a | FI-A port 29 | A |
+| ASA30-01 port 1b | FI-B port 29 | B |
+| ASA30-01 port 1c | FI-A port 30 | A |
+| ASA30-01 port 1d | FI-B port 30 | B |
+| ASA30-02 port 1a | FI-A port 31 | A |
+| ASA30-02 port 1b | FI-B port 31 | B |
+| ASA30-02 port 1c | FI-A port 32 | A |
+| ASA30-02 port 1d | FI-B port 32 | B |
+
+If your cabling differs, edit `$fabricATargets` and `$fabricBTargets` at the top of the
+script before running.
+
+### Running the Script
+
+The zone profile is created with `AdminState = disabled` — safe to run right now:
+
+```powershell
+# Pre-build all 16 zones (profile stays disabled — nothing activates)
+.\09-fc-zoning.ps1
+
+# Later, once ASA A30 is cabled and blade profiles are associated:
+.\09-fc-zoning.ps1 -Enable
+```
+
+The `-Enable` flag flips the zone profile to `AdminState = enabled`, which pushes the zone
+set to both FIs and makes them active on the FC fabric. At that point your ESXi hosts will
+see the ASA A30 LUNs.
+
+```powershell
+# Core of what the script does — shown here for context:
+$profile = Add-UcsFabricFcZoneProfile -Ucs $h `
+    -Name 'hg-fc-zones' -AdminState 'disabled' -ModifyPresent
+
+foreach ($init in $initiators) {
+    $zone = Add-UcsFabricFcUserZone -Ucs $h `
+        -FabricFcZoneProfile $profile `
+        -Name "hg-$($init.Sp -replace '^hg-','')-fab-a" `
+        -Path 'A' -ModifyPresent
+
+    # One initiator endpoint
+    Add-UcsFabricFcEndpoint -Ucs $h -FabricFcUserZone $zone `
+        -Name "$($init.Sp)-vmhba0" -Wwpn $init.FabA -ModifyPresent | Out-Null
+
+    # Four target endpoints (all ASA A30 Fabric A ports)
+    foreach ($tgt in $fabricATargets) {
+        Add-UcsFabricFcEndpoint -Ucs $h -FabricFcUserZone $zone `
+            -Name $tgt.Name -Wwpn $tgt.Wwpn -ModifyPresent | Out-Null
+    }
+}
+```
+
+> **UCSM name limit:** Zone profile and zone names must be ≤ 16 characters.
+> `hg-fc-zones` (11 chars) and `hg-esx-01-fab-a` (15 chars) both fit cleanly.
+
+---
+
+## Step 10 — Verify
 
 **Full script →** [`08-verify.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/08-verify.ps1)
 
@@ -833,6 +937,7 @@ https://github.com/humbledgeeks/infra-automation
     ├── 06-service-profile-template.ps1
     ├── 07-deploy-service-profiles.ps1   ← create 8 profiles (unassociated)
     ├── 07b-associate-service-profiles.ps1 ← bind profiles to blades (run after ASA A30 + FC zoning)
+    ├── 09-fc-zoning.ps1                   ← pre-build 16 zones; run -Enable after ASA A30 cabled
     ├── 08-verify.ps1
     └── screenshots/             ← all UCSM GUI screenshots referenced above
 ```

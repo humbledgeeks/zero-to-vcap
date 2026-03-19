@@ -86,14 +86,31 @@ def convert_to_gutenberg_blocks(html):
             )
 
         elif element.startswith('<pre'):
-            # Fenced code block
-            code_match = re.search(r'<code[^>]*>(.*?)</code>', element, re.DOTALL)
-            code_content = code_match.group(1) if code_match else element
-            blocks.append(
-                f'<!-- wp:code -->\n'
-                f'<pre class="wp-block-code"><code>{code_content}</code></pre>\n'
-                f'<!-- /wp:code -->'
-            )
+            # Fenced code block — preserve language for Prism.js syntax highlighting.
+            # Python markdown fenced_code emits: <pre><code class="language-powershell">…</code></pre>
+            code_match = re.search(r'<code([^>]*)>(.*?)</code>', element, re.DOTALL)
+            if code_match:
+                code_attrs    = code_match.group(1)
+                code_content  = code_match.group(2)
+                lang_m        = re.search(r'class=["\'](?:language-)?(\w+)["\']', code_attrs)
+                lang          = lang_m.group(1).lower() if lang_m else None
+            else:
+                code_content = element
+                lang         = None
+
+            if lang:
+                lang_class = f'language-{lang}'
+                blocks.append(
+                    f'<!-- wp:code {{"className":"{lang_class}"}} -->\n'
+                    f'<pre class="wp-block-code {lang_class}"><code class="{lang_class}">{code_content}</code></pre>\n'
+                    f'<!-- /wp:code -->'
+                )
+            else:
+                blocks.append(
+                    f'<!-- wp:code -->\n'
+                    f'<pre class="wp-block-code"><code>{code_content}</code></pre>\n'
+                    f'<!-- /wp:code -->'
+                )
 
         elif element.startswith('<ul>'):
             items_html = _convert_list_items(element)
