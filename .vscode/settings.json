@@ -1,0 +1,51 @@
+{
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "explorer.sortOrder": "type",
+    "workbench.editor.enablePreview": false,
+
+    "files.associations": {
+        "*.md": "markdown",
+        "*.ps1": "powershell",
+        "*.psm1": "powershell",
+        "*.sh": "shellscript",
+        "*.yml": "yaml",
+        "*.yaml": "yaml",
+        "*.py": "python",
+        "requirements.txt": "pip-requirements",
+        ".env.example": "dotenv"
+    },
+
+    "markdown.preview.breaks": true,
+    "markdown.validate.enabled": true,
+
+    "[markdown]": {
+        "editor.wordWrap": "on",
+        "editor.lineNumbers": "off",
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        }
+    },
+
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.defaultFormatter": "ms-python.python"
+    },
+
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/*.pyc": true,
+        ".venv": true
+    }
+}

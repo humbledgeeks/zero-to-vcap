@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "yzhang.markdown-all-in-one",
+        "DavidAnson.vscode-markdownlint",
+        "ms-vscode.powershell",
+        "redhat.vscode-yaml",
+        "EditorConfig.EditorConfig",
+        "eamodio.gitlens",
+        "GitHub.copilot",
+        "anthropics.claude-code"
+    ]
+}
