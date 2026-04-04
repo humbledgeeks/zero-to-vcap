@@ -88,6 +88,12 @@ def parse_args():
         default="",
         help="Comma-separated list of extra tags to add (e.g. 'vSAN,NSX,Lab')",
     )
+    parser.add_argument(
+        "--post-id",
+        type=int,
+        default=None,
+        help="WordPress post ID to update an existing draft instead of creating a new one",
+    )
     return parser.parse_args()
 
 
@@ -164,14 +170,32 @@ def convert_to_gutenberg_blocks(html):
             )
 
         elif element.startswith('<pre'):
-            # Fenced code blocks — extract inner <code> content
-            code_match = re.search(r'<code[^>]*>(.*?)</code>', element, re.DOTALL)
-            code_content = code_match.group(1) if code_match else element
-            blocks.append(
-                f'<!-- wp:code -->\n'
-                f'<pre class="wp-block-code"><code>{code_content}</code></pre>\n'
-                f'<!-- /wp:code -->'
-            )
+            # Fenced code blocks — extract language class and content
+            code_match = re.search(r'<code([^>]*)>(.*?)</code>', element, re.DOTALL)
+            if code_match:
+                code_attrs = code_match.group(1)
+                code_content = code_match.group(2)
+                lang_match = re.search(r'class=["\'](?:language-)?(\w+)["\']', code_attrs)
+                if lang_match:
+                    lang = lang_match.group(1).lower()
+                    lang_class = f'language-{lang}'
+                    blocks.append(
+                        f'<!-- wp:code {{"language":"{lang}"}} -->\n'
+                        f'<pre class="wp-block-code"><code class="{lang_class}">{code_content}</code></pre>\n'
+                        f'<!-- /wp:code -->'
+                    )
+                else:
+                    blocks.append(
+                        f'<!-- wp:code -->\n'
+                        f'<pre class="wp-block-code"><code>{code_content}</code></pre>\n'
+                        f'<!-- /wp:code -->'
+                    )
+            else:
+                blocks.append(
+                    f'<!-- wp:code -->\n'
+                    f'<pre class="wp-block-code"><code>{element}</code></pre>\n'
+                    f'<!-- /wp:code -->'
+                )
 
         elif element.startswith('<ul>'):
             items_html = _convert_list_items(element)
@@ -242,7 +266,7 @@ def parse_markdown(filepath):
     body_md = re.sub(r'^#\s+.+\n?', '', raw, count=1, flags=re.MULTILINE).strip()
 
     # Convert Markdown to HTML then to Gutenberg blocks
-    md = markdown.Markdown(extensions=["tables", "fenced_code", "nl2br"])
+    md = markdown.Markdown(extensions=["tables", "fenced_code"])
     body_html = convert_to_gutenberg_blocks(md.convert(body_md))
 
     # Collect H2 headings for image placement
@@ -584,11 +608,14 @@ def main():
         # --- Inject Images Into HTML ---
         final_html = insert_inline_images(body_html, inline_image_map)
 
-    # --- Create WordPress Draft ---
-    print("\nCreating WordPress draft...")
+    # --- Create or Update WordPress Draft ---
+    if args.post_id:
+        print(f"\nUpdating existing WordPress draft (ID: {args.post_id})...")
+    else:
+        print("\nCreating new WordPress draft...")
     post_id, post_link = create_wp_draft(
         title, final_html, excerpt, featured_id, tag_ids, category_ids,
-        config["WORDPRESS_URL"], wp_headers,
+        config["WORDPRESS_URL"], wp_headers, post_id=args.post_id,
     )
 
     print("\n" + "=" * 50)

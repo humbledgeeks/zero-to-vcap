@@ -101,8 +101,8 @@ def convert_to_gutenberg_blocks(html):
             if lang:
                 lang_class = f'language-{lang}'
                 blocks.append(
-                    f'<!-- wp:code {{"className":"{lang_class}"}} -->\n'
-                    f'<pre class="wp-block-code {lang_class}"><code class="{lang_class}">{code_content}</code></pre>\n'
+                    f'<!-- wp:code {{"language":"{lang}"}} -->\n'
+                    f'<pre class="wp-block-code"><code class="{lang_class}">{code_content}</code></pre>\n'
                     f'<!-- /wp:code -->'
                 )
             else:
