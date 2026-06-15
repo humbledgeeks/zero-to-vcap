@@ -1,0 +1,310 @@
+{
+  "images/vcf91-wld-008-datastore-vmfs01.jpg": {
+    "id": 1955,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-008-datastore-vmfs01-scaled.jpg"
+  },
+  "images/vcf91-wld-005-portgroup-vm-mgmt-vlan16.jpg": {
+    "id": 1956,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-005-portgroup-vm-mgmt-vlan16-scaled.jpg"
+  },
+  "images/vcf91-wld-001-nsx-overview-before.jpg": {
+    "id": 1957,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-001-nsx-overview-before-scaled.jpg"
+  },
+  "images/vcf91-wld-002-transit-gateway-empty-shell.jpg": {
+    "id": 1958,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-002-transit-gateway-empty-shell-scaled.jpg"
+  },
+  "images/vcf91-wld-003-vpc-get-started.jpg": {
+    "id": 1959,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-003-vpc-get-started-scaled.jpg"
+  },
+  "images/vcf91-wld-010-meraki-switches-online.jpg": {
+    "id": 1960,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-010-meraki-switches-online-scaled.jpg"
+  },
+  "images/vcf91-wld-011-meraki-switch-stacks.jpg": {
+    "id": 1961,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-011-meraki-switch-stacks-scaled.jpg"
+  },
+  "images/vcf91-wld-013-meraki-mtu-9578-jumbo.jpg": {
+    "id": 1962,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-013-meraki-mtu-9578-jumbo-scaled.jpg"
+  },
+  "images/vcf91-wld-014-meraki-ports-ucs-fi-trunks.jpg": {
+    "id": 1963,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-014-meraki-ports-ucs-fi-trunks-scaled.jpg"
+  },
+  "images/vcf91-wld-015-mx-deployment-mode-routed.jpg": {
+    "id": 1964,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-015-mx-deployment-mode-routed-scaled.jpg"
+  },
+  "images/vcf91-wld-016-mx-vlan-svi-list.jpg": {
+    "id": 1965,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-016-mx-vlan-svi-list-scaled.jpg"
+  },
+  "images/vcf91-wld-017-mx-no-static-routes-yet.jpg": {
+    "id": 1966,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-017-mx-no-static-routes-yet-scaled.jpg"
+  },
+  "images/vcf91-wld-018-mx-dhcp-vlan44-reserved.jpg": {
+    "id": 1967,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-018-mx-dhcp-vlan44-reserved-scaled.jpg"
+  },
+  "images/vcf91-wld-019-mx-dhcp-vlan42-reserved.jpg": {
+    "id": 1968,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-019-mx-dhcp-vlan42-reserved-scaled.jpg"
+  },
+  "images/vcf91-wld-022-mx-static-route-add-modal.jpg": {
+    "id": 1969,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-022-mx-static-route-add-modal-scaled.jpg"
+  },
+  "images/vcf91-wld-023-mx-static-route-created.jpg": {
+    "id": 1970,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-023-mx-static-route-created-scaled.jpg"
+  },
+  "images/vcf91-wld-025-switch-routing-empty.jpg": {
+    "id": 1971,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-025-switch-routing-empty-scaled.jpg"
+  },
+  "images/vcf91-wld-030-switch-static-route-filled.jpg": {
+    "id": 1972,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-030-switch-static-route-filled-scaled.jpg"
+  },
+  "images/vcf91-wld-031-switch-svi-transit-vlan99.jpg": {
+    "id": 1973,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-031-switch-svi-transit-vlan99-scaled.jpg"
+  },
+  "images/vcf91-wld-032-switch-svi-vlan42-defaultgateway-error.jpg": {
+    "id": 1974,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-032-switch-svi-vlan42-defaultgateway-error-scaled.jpg"
+  },
+  "images/vcf91-wld-033-switch-two-svis-99-42.jpg": {
+    "id": 1975,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-033-switch-two-svis-99-42-scaled.jpg"
+  },
+  "images/vcf91-wld-034-switch-vlan32-dhcp-server.jpg": {
+    "id": 1976,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-034-switch-vlan32-dhcp-server-scaled.jpg"
+  },
+  "images/vcf91-wld-035-switch-svi-created-banner.jpg": {
+    "id": 1977,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-035-switch-svi-created-banner-scaled.jpg"
+  },
+  "images/vcf91-wld-036-switch-three-svis-jumbo-island.jpg": {
+    "id": 1978,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-036-switch-three-svis-jumbo-island-scaled.jpg"
+  },
+  "images/vcf91-wld-037-nsx-ipblock-external-edit.jpg": {
+    "id": 1979,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-037-nsx-ipblock-external-edit-scaled.jpg"
+  },
+  "images/vcf91-wld-039-nsx-ipblock-private-tgw-edit.jpg": {
+    "id": 1980,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-039-nsx-ipblock-private-tgw-edit-scaled.jpg"
+  },
+  "images/vcf91-wld-040-nsx-ipblocks-all-created.jpg": {
+    "id": 1981,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-040-nsx-ipblocks-all-created-scaled.jpg"
+  },
+  "images/vcf91-wld-041-wizard-transit-gateways-start.jpg": {
+    "id": 1982,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-041-wizard-transit-gateways-start-scaled.jpg"
+  },
+  "images/vcf91-wld-042-wizard-tgw-connectivity-span.jpg": {
+    "id": 1983,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-042-wizard-tgw-connectivity-span-scaled.jpg"
+  },
+  "images/vcf91-wld-043-wizard-centralized-connection.jpg": {
+    "id": 1984,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-043-wizard-centralized-connection-scaled.jpg"
+  },
+  "images/vcf91-wld-044-wizard-prerequisites-unchecked.jpg": {
+    "id": 1985,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-044-wizard-prerequisites-unchecked-scaled.jpg"
+  },
+  "images/vcf91-wld-045-wizard-prerequisites-checked.jpg": {
+    "id": 1986,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-045-wizard-prerequisites-checked-scaled.jpg"
+  },
+  "images/vcf91-wld-047-wizard-edge-cluster-empty.jpg": {
+    "id": 1987,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-047-wizard-edge-cluster-empty-scaled.jpg"
+  },
+  "images/vcf91-wld-048-addnode1-mgmt-cidr-required.jpg": {
+    "id": 1988,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-048-addnode1-mgmt-cidr-required-scaled.jpg"
+  },
+  "images/vcf91-wld-049-addnode1-portgroup-dropdown.jpg": {
+    "id": 1989,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-049-addnode1-portgroup-dropdown-scaled.jpg"
+  },
+  "images/vcf91-wld-054-addnode1-resources-vmfs01.jpg": {
+    "id": 1990,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-054-addnode1-resources-vmfs01-scaled.jpg"
+  },
+  "images/vcf91-wld-053-addnode1-uplinks-host-overlay.jpg": {
+    "id": 1991,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-053-addnode1-uplinks-host-overlay-scaled.jpg"
+  },
+  "images/vcf91-wld-055-addnode1-tep-ip-pool-select.jpg": {
+    "id": 1992,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-055-addnode1-tep-ip-pool-select-scaled.jpg"
+  },
+  "images/vcf91-wld-056-addnode1-error-15000-not-enough-ip.jpg": {
+    "id": 1993,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-056-addnode1-error-15000-not-enough-ip-scaled.jpg"
+  },
+  "images/vcf91-wld-057-nsx-tep-pool-two-ranges.jpg": {
+    "id": 1994,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-057-nsx-tep-pool-two-ranges-scaled.jpg"
+  },
+  "images/vcf91-wld-058-nsx-tep-pool-trimmed.jpg": {
+    "id": 1995,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-058-nsx-tep-pool-trimmed-scaled.jpg"
+  },
+  "images/vcf91-wld-059-addnode1-runcheck-4-supported-hosts.jpg": {
+    "id": 1996,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-059-addnode1-runcheck-4-supported-hosts-scaled.jpg"
+  },
+  "images/vcf91-wld-060-wizard-edge-cluster-node1-added.jpg": {
+    "id": 1997,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-060-wizard-edge-cluster-node1-added-scaled.jpg"
+  },
+  "images/vcf91-wld-061-addnode2-placement-vmfs01.jpg": {
+    "id": 1998,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-061-addnode2-placement-vmfs01-scaled.jpg"
+  },
+  "images/vcf91-wld-062-addnode2-tep-runcheck.jpg": {
+    "id": 1999,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-062-addnode2-tep-runcheck-scaled.jpg"
+  },
+  "images/vcf91-wld-063-wizard-edge-cluster-both-nodes.jpg": {
+    "id": 2000,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-063-wizard-edge-cluster-both-nodes-scaled.jpg"
+  },
+  "images/vcf91-wld-065-wdc-bgp-on-local-asn.jpg": {
+    "id": 2001,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-065-wdc-bgp-on-local-asn-scaled.jpg"
+  },
+  "images/vcf91-wld-066-wdc-bgp-off-top.jpg": {
+    "id": 2002,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-066-wdc-bgp-off-top-scaled.jpg"
+  },
+  "images/vcf91-wld-067-wdc-edge1-uplink-44-11.jpg": {
+    "id": 2003,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-067-wdc-edge1-uplink-44-11-scaled.jpg"
+  },
+  "images/vcf91-wld-069-wdc-edge2-uplink-44-12.jpg": {
+    "id": 2004,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-069-wdc-edge2-uplink-44-12-scaled.jpg"
+  },
+  "images/vcf91-wld-071-wdc-external-block-no-items-found.jpg": {
+    "id": 2005,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-071-wdc-external-block-no-items-found-scaled.jpg"
+  },
+  "images/vcf91-wld-073-wdc-private-tgw-block-dropdown.jpg": {
+    "id": 2006,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-073-wdc-private-tgw-block-dropdown-scaled.jpg"
+  },
+  "images/vcf91-wld-074-wdc-complete-t0-both-blocks.jpg": {
+    "id": 2007,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-074-wdc-complete-t0-both-blocks-scaled.jpg"
+  },
+  "images/vcf91-wld-077-review-and-deploy-summary.jpg": {
+    "id": 2008,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-077-review-and-deploy-summary-scaled.jpg"
+  },
+  "images/vcf91-wld-079-deploy-submitted-banner.jpg": {
+    "id": 2009,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-079-deploy-submitted-banner-scaled.jpg"
+  },
+  "images/vcf91-wld-080-deploy-ovf-progress.jpg": {
+    "id": 2010,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-080-deploy-ovf-progress-scaled.jpg"
+  },
+  "images/vcf91-wld-082-edge-cluster-success-connectivity-pending.jpg": {
+    "id": 2011,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-082-edge-cluster-success-connectivity-pending-scaled.jpg"
+  },
+  "images/vcf91-wld-083-edge-cluster-2-up-success.jpg": {
+    "id": 2012,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-083-edge-cluster-2-up-success-scaled.jpg"
+  },
+  "images/vcf91-wld-084-t0-list-success.jpg": {
+    "id": 2013,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-084-t0-list-success-scaled.jpg"
+  },
+  "images/vcf91-wld-086-static-routes-empty.jpg": {
+    "id": 2014,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-086-static-routes-empty-scaled.jpg"
+  },
+  "images/vcf91-wld-088-add-route-default-route-to-mx.jpg": {
+    "id": 2015,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-088-add-route-default-route-to-mx-scaled.jpg"
+  },
+  "images/vcf91-wld-089-next-hop-44-1-entry.jpg": {
+    "id": 2016,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-089-next-hop-44-1-entry-scaled.jpg"
+  },
+  "images/vcf91-wld-091-route-added-uninitialized.jpg": {
+    "id": 2017,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-091-route-added-uninitialized-scaled.jpg"
+  },
+  "images/vcf91-wld-092-route-success.jpg": {
+    "id": 2018,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-092-route-success-scaled.jpg"
+  },
+  "images/vcf91-wld-097-ha-vip-entry-44-10.jpg": {
+    "id": 2019,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-097-ha-vip-entry-44-10-scaled.jpg"
+  },
+  "images/vcf91-wld-099-t0-ha-active-standby-vip.jpg": {
+    "id": 2020,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-099-t0-ha-active-standby-vip-scaled.jpg"
+  },
+  "images/vcf91-wld-101-extconn-form-snat-off.jpg": {
+    "id": 2021,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-101-extconn-form-snat-off-scaled.jpg"
+  },
+  "images/vcf91-wld-104-extconn-snat-on-external-block.jpg": {
+    "id": 2022,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-104-extconn-snat-on-external-block-scaled.jpg"
+  },
+  "images/vcf91-wld-105-extconn-snat-configured.jpg": {
+    "id": 2023,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-105-extconn-snat-configured-scaled.jpg"
+  },
+  "images/vcf91-wld-107-mx-route-flip-to-vip.jpg": {
+    "id": 2024,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-107-mx-route-flip-to-vip-scaled.jpg"
+  },
+  "images/vcf91-wld-110-tgw-up-linked-success.jpg": {
+    "id": 2025,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-110-tgw-up-linked-success-scaled.jpg"
+  },
+  "images/vcf91-wld-111-extconn-success.jpg": {
+    "id": 2026,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-111-extconn-success-scaled.jpg"
+  },
+  "images/vcf91-wld-113-nsx-overview-after.jpg": {
+    "id": 2027,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-113-nsx-overview-after-scaled.jpg"
+  },
+  "images/vcf91-wld-114-hosts-4-prepared.jpg": {
+    "id": 2028,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-114-hosts-4-prepared-scaled.jpg"
+  },
+  "images/vcf91-wld-115-edge-cluster-tunnels-up.jpg": {
+    "id": 2029,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-115-edge-cluster-tunnels-up-scaled.jpg"
+  },
+  "images/vcf91-wld-004-supervisor-vpc-profile-empty.jpg": {
+    "id": 2031,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-004-supervisor-vpc-profile-empty-scaled.jpg"
+  },
+  "images/vcf91-wld-116-supervisor-vpc-profile-selected.jpg": {
+    "id": 2032,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf91-wld-116-supervisor-vpc-profile-selected-scaled.jpg"
+  }
+}

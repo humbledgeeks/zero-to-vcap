@@ -194,14 +194,14 @@ VM workload path and simplifies NSX transport zone configuration. All at MTU 150
 | vmhba0 | A | hg-wwpn-a | hg-vsan-a | 10 |
 | vmhba1 | B | hg-wwpn-b | hg-vsan-b | 11 |
 
-> All scripts are in the [HumbledGeeks infra-automation repo](https://github.com/humbledgeeks/infra-automation)
+> All scripts are in the [HumbledGeeks cisco-ucs-powershell repo](https://github.com/humbledgeeks/cisco-ucs-powershell)
 > under `Cisco/UCS/PowerShell/HumbledGeeks/`. Each section below links directly.
 
 ---
 
 ## Step 0: Prerequisites and Connect
 
-**Full script →** [`00-prereqs-and-connect.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/00-prereqs-and-connect.ps1)
+**Full script →** [`00-prereqs-and-connect.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/00-prereqs-and-connect.ps1)
 
 Every other script dot-sources this one. Run any section standalone without re-authenticating.
 
@@ -228,7 +228,7 @@ $global:HgOrg     = Get-UcsOrg -Ucs $global:UcsHandle | Where-Object { $_.Name -
 
 ## Step 1 — Identity Pools
 
-**Full script →** [`01-pools.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/01-pools.ps1)
+**Full script →** [`01-pools.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/01-pools.ps1)
 
 Always use **Sequential** assignment. Random (the default) makes troubleshooting painful, because sequential means blade-1 always gets the same MAC, UUID, and WWN after a rebuild.
 
@@ -267,13 +267,13 @@ Add-UcsWwnMemberBlock -WwnPool (Get-UcsWwnPool -Ucs $h -Name 'hg-wwpn-a') -Ucs $
 ```
 
 > **Full script** (MAC-A/B, UUID, WWNN, WWPN-A/B, KVM IP pool) →
-> [`01-pools.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/01-pools.ps1)
+> [`01-pools.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/01-pools.ps1)
 
 ---
 
 ## Step 2: VLANs and VSANs
 
-**Full script →** [`02-vlans-vsans.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/02-vlans-vsans.ps1)
+**Full script →** [`02-vlans-vsans.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/02-vlans-vsans.ps1)
 
 **This is where you define every VLAN your environment will use.** All VLANs must be
 created here in the LAN cloud *before* you can assign them to vNIC templates in Step 4.
@@ -358,13 +358,13 @@ Add-UcsFabricEthLanPcEp -Ucs $h -LanPc $pcA -SlotId 1 -PortId 18 -ModifyPresent
 ```
 
 > **Full script** (all 13 VLANs, both VSANs, all FC port members, port channels) →
-> [`02-vlans-vsans.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/02-vlans-vsans.ps1)
+> [`02-vlans-vsans.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/02-vlans-vsans.ps1)
 
 ---
 
 ## Step 3: Policies
 
-**Full script →** [`03-policies.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/03-policies.ps1)
+**Full script →** [`03-policies.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/03-policies.ps1)
 
 ### Network Control Policy: CDP and LLDP
 
@@ -484,13 +484,13 @@ $pp = Add-UcsVnicLanConnTempl -Org $org -Ucs $h -Name 'placement-policy' -Modify
 ```
 
 > **Full script** (all policies above + QoS policy) →
-> [`03-policies.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/03-policies.ps1)
+> [`03-policies.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/03-policies.ps1)
 
 ---
 
 ## Step 4: vNIC Templates
 
-**Full script →** [`04-vnic-templates.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/04-vnic-templates.ps1)
+**Full script →** [`04-vnic-templates.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/04-vnic-templates.ps1)
 
 All six templates at MTU 1500. Storage is on FC, so there's no Ethernet storage path and no jumbo frames needed.
 
@@ -509,13 +509,13 @@ Add-UcsVnicTemplate -Org $org -Ucs $h `
 ```
 
 > **Full script** (all 6 templates with VLAN bindings) →
-> [`04-vnic-templates.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/04-vnic-templates.ps1)
+> [`04-vnic-templates.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/04-vnic-templates.ps1)
 
 ---
 
 ## Step 5: vHBA Templates
 
-**Full script →** [`05-vhba-templates.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/05-vhba-templates.ps1)
+**Full script →** [`05-vhba-templates.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/05-vhba-templates.ps1)
 
 Two FC vHBAs (one path per fabric) give true dual-path to the NetApp ASA A30.
 
@@ -532,13 +532,13 @@ Add-UcsVhbaInterface -VhbaTemplate $vhbaA -Ucs $h -Name 'hg-vsan-a' -ModifyPrese
 ```
 
 > **Full script** (both vHBAs, VSAN binding) →
-> [`05-vhba-templates.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/05-vhba-templates.ps1)
+> [`05-vhba-templates.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/05-vhba-templates.ps1)
 
 ---
 
 ## Step 6: Service Profile Template
 
-**Full script →** [`06-service-profile-template.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/06-service-profile-template.ps1)
+**Full script →** [`06-service-profile-template.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/06-service-profile-template.ps1)
 
 The SP template ties everything together. Template type **must** be `updating-template`;
 it cannot be changed in-place after creation (delete and recreate if you get it wrong).
@@ -603,7 +603,7 @@ Add-UcsVnicIpV4PooledIscsiAddr -ServiceProfile $spt -Ucs $h `
 ```
 
 > **Full script** →
-> [`06-service-profile-template.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/06-service-profile-template.ps1)
+> [`06-service-profile-template.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/06-service-profile-template.ps1)
 
 ---
 
@@ -642,7 +642,7 @@ The VI workload domain (hg-esx-05–08) is your first compute cluster for actual
 
 ### Step 7a: Create the Profiles (script)
 
-**Full script →** [`07-deploy-service-profiles.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/07-deploy-service-profiles.ps1)
+**Full script →** [`07-deploy-service-profiles.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/07-deploy-service-profiles.ps1)
 
 This script creates all 8 profiles in an **unassociated** state, with no blade binding yet.
 Keeping creation and association separate lets you verify the profiles look correct in the
@@ -693,7 +693,7 @@ need two things in place that aren't ready yet at this stage of the build:
 When you're ready to associate, either via the UCSM GUI (drag service profile onto a blade)
 or via the script:
 
-**Script →** [`07b-associate-service-profiles.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/07b-associate-service-profiles.ps1)
+**Script →** [`07b-associate-service-profiles.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/07b-associate-service-profiles.ps1)
 
 ```powershell
 # Bind each SP to its physical blade slot
@@ -721,7 +721,7 @@ KVM management IP from `hg-ext-mgmt`.
 NTP and DNS are bundled into `03-policies.ps1` — there is no separate Step 8 script.
 Running the policies script handles this automatically; nothing extra to run here.
 
-**Reference →** [`03-policies.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/03-policies.ps1)
+**Reference →** [`03-policies.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/03-policies.ps1)
 
 Don't skip NTP. UCSM uses timestamps for fault correlation, syslog, and certificate
 validation — a drifting clock causes subtle issues that are hard to trace back to time skew.
@@ -742,7 +742,7 @@ Add-UcsDnsServer -Ucs $h -Name '10.x.x.x' -ModifyPresent  # secondary DNS
 
 ## Step 9 — Pre-Build FC Zoning (Before the ASA A30 Arrives)
 
-**Full script →** [`09-fc-zoning.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/09-fc-zoning.ps1)
+**Full script →** [`09-fc-zoning.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/09-fc-zoning.ps1)
 
 This is the part that trips people up: FC zoning feels like something you do *after* the
 storage is connected, but you can actually pre-build every zone before the ASA A30 is
@@ -842,7 +842,7 @@ foreach ($init in $initiators) {
 
 ## Step 10 — Verify
 
-**Full script →** [`10-verify.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/10-verify.ps1)
+**Full script →** [`10-verify.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/10-verify.ps1)
 
 ```powershell
 # Faults
@@ -859,7 +859,7 @@ Get-UcsFabricEthLanPc -Ucs $h |
 ```
 
 > **Full script** →
-> [`10-verify.ps1`](https://github.com/humbledgeeks/infra-automation/blob/main/Cisco/UCS/PowerShell/HumbledGeeks/10-verify.ps1)
+> [`10-verify.ps1`](https://github.com/humbledgeeks/cisco-ucs-powershell/blob/main/HumbledGeeks/10-verify.ps1)
 
 ---
 
@@ -989,7 +989,7 @@ With storage visible, the VCF deployment can proceed:
 ## Get the Code
 
 ```
-https://github.com/humbledgeeks/infra-automation
+https://github.com/humbledgeeks/cisco-ucs-powershell
 └── Cisco/UCS/PowerShell/HumbledGeeks/
     ├── 00-prereqs-and-connect.ps1
     ├── 01-pools.ps1

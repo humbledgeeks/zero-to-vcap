@@ -241,7 +241,7 @@ def convert_to_gutenberg_blocks(html):
                 blocks.append(
                     f'<!-- wp:image {{"sizeSlug":"large","linkDestination":"none"}} -->\n'
                     f'<figure class="wp-block-image size-large">'
-                    f'<img src="{src}" alt="{alt}" class="wp-image"/>'
+                    f'<img src="{src}" alt="{alt}"/>'
                     f'</figure>\n'
                     f'<!-- /wp:image -->'
                 )
