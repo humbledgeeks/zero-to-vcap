@@ -1,0 +1,142 @@
+{
+  "../vcf-deployment-wld/vcf-wld-commission-01-dashboard-before.jpg": {
+    "id": 2036,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-commission-01-dashboard-before-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-commission-02-checklist-blank.jpg": {
+    "id": 2037,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-commission-02-checklist-blank-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-commission-03-checklist-acknowledged.jpg": {
+    "id": 2038,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-commission-03-checklist-acknowledged-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-commission-04-add-host-vmfs-fc.jpg": {
+    "id": 2039,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-commission-04-add-host-vmfs-fc-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-commission-05-first-host-added.jpg": {
+    "id": 2040,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-commission-05-first-host-added-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-commission-06-four-hosts-added.jpg": {
+    "id": 2041,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-commission-06-four-hosts-added-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-commission-07-validation-in-progress.jpg": {
+    "id": 2042,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-commission-07-validation-in-progress-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-commission-08-hosts-validated.jpg": {
+    "id": 2043,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-commission-08-hosts-validated-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-commission-09-validation-complete.jpg": {
+    "id": 2044,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-commission-09-validation-complete-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-commission-10-review-commission.jpg": {
+    "id": 2045,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-commission-10-review-commission-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-commission-11-unassigned-activating.jpg": {
+    "id": 2046,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-commission-11-unassigned-activating-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-commission-12-unassigned-active.jpg": {
+    "id": 2047,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-commission-12-unassigned-active-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-commission-13-assigned-hosts-mgmt.jpg": {
+    "id": 2048,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-commission-13-assigned-hosts-mgmt-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-commission-14-assigned-hosts-detail.jpg": {
+    "id": 2049,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-commission-14-assigned-hosts-detail-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-commission-15-dashboard-after.jpg": {
+    "id": 2050,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-commission-15-dashboard-after-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-01-general-info-supervisor.jpg": {
+    "id": 2051,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-01-general-info-supervisor-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-02-vcenter-sso.jpg": {
+    "id": 2052,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-02-vcenter-sso-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-03-cluster.jpg": {
+    "id": 2053,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-03-cluster-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-04-image.jpg": {
+    "id": 2054,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-04-image-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-05-nsx-join-existing.jpg": {
+    "id": 2055,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-05-nsx-join-existing-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-06-storage-vmfs-fc.jpg": {
+    "id": 2056,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-06-storage-vmfs-fc-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-07-select-hosts.jpg": {
+    "id": 2057,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-07-select-hosts-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-08-vds-profile-select.jpg": {
+    "id": 2058,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-08-vds-profile-select-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-09-vds-switches.jpg": {
+    "id": 2059,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-09-vds-switches-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-10-vds-transport-vlan.jpg": {
+    "id": 2060,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-10-vds-transport-vlan-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-11-supervisor-config.jpg": {
+    "id": 2061,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-11-supervisor-config-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-12-vpc-connectivity-profile.jpg": {
+    "id": 2062,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-12-vpc-connectivity-profile-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-13-review-summary.jpg": {
+    "id": 2063,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-13-review-summary-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-14-validation-in-progress.jpg": {
+    "id": 2064,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-14-validation-in-progress-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-15-validation-succeeded.jpg": {
+    "id": 2065,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-15-validation-succeeded-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-16-initiating-creation.jpg": {
+    "id": 2066,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-16-initiating-creation-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-17-deploy-validations.jpg": {
+    "id": 2067,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-17-deploy-validations-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-18-deploy-vcenter.jpg": {
+    "id": 2068,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-18-deploy-vcenter-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-19-deploy-vlcm-image.jpg": {
+    "id": 2069,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-19-deploy-vlcm-image-scaled.jpg"
+  },
+  "../vcf-deployment-wld/vcf-wld-create-20-two-workload-domains.jpg": {
+    "id": 2070,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vcf-wld-create-20-two-workload-domains-scaled.jpg"
+  }
+}

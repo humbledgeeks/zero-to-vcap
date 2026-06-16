@@ -1,0 +1,36 @@
+group,step,original,new_name,screen
+commission,1,vcf-wld-create_15.jpg,vcf-wld-commission-01-dashboard-before.jpg,SDDC Manager dashboard before commissioning (1 workload domain, 4 hosts)
+commission,2,vcf-wld-create_14.jpg,vcf-wld-commission-02-checklist-blank.jpg,Commission Hosts prerequisite checklist (unchecked)
+commission,3,vcf-wld-create_13.jpg,vcf-wld-commission-03-checklist-acknowledged.jpg,Checklist all acknowledged, Proceed enabled
+commission,4,vcf-wld-create_12.jpg,vcf-wld-commission-04-add-host-vmfs-fc.jpg,Add host form - Storage Type VMFS on FC, network pool
+commission,5,vcf-wld-create_11.jpg,vcf-wld-commission-05-first-host-added.jpg,First host added (esxi05), fingerprint shown
+commission,6,vcf-wld-create_10.jpg,vcf-wld-commission-06-four-hosts-added.jpg,Four hosts added (esxi05-08), fingerprints confirmed
+commission,7,vcf-wld-create_9.jpg,vcf-wld-commission-07-validation-in-progress.jpg,Host validation in progress
+commission,8,vcf-wld-create_8.jpg,vcf-wld-commission-08-hosts-validated.jpg,Hosts validated successfully (all Valid)
+commission,9,vcf-wld-create_7.jpg,vcf-wld-commission-09-validation-complete.jpg,All four hosts valid, ready for review
+commission,10,vcf-wld-create_6.jpg,vcf-wld-commission-10-review-commission.jpg,Review step - VMFS_FC, skip-failed toggle, Commission
+commission,11,vcf-wld-create_4.jpg,vcf-wld-commission-11-unassigned-activating.jpg,Unassigned Hosts - new hosts Activating / Need Cleanup
+commission,12,vcf-wld-create_2.jpg,vcf-wld-commission-12-unassigned-active.jpg,Unassigned Hosts - new hosts Active and unassigned
+commission,13,vcf-wld-create_5.jpg,vcf-wld-commission-13-assigned-hosts-mgmt.jpg,Assigned Hosts tab - the four management hosts (esxi01-04)
+commission,14,vcf-wld-create_3.jpg,vcf-wld-commission-14-assigned-hosts-detail.jpg,Assigned Hosts detail (zoomed)
+commission,15,vcf-wld-create_1.jpg,vcf-wld-commission-15-dashboard-after.jpg,Dashboard after commissioning (8 hosts total, 4 unallocated)
+create,1,vcf-wld_20.jpg,vcf-wld-create-01-general-info-supervisor.jpg,General Information - WD name dc3-wld01, Full deployment, Enable vSphere Supervisor
+create,2,vcf-wld_19.jpg,vcf-wld-create-02-vcenter-sso.jpg,vCenter dc3-vc02 - new isolated SSO domain
+create,3,vcf-wld_18.jpg,vcf-wld-create-03-cluster.jpg,Cluster dc3-wld-cl01, vSphere Zone dc3-zone1
+create,4,vcf-wld_17.jpg,vcf-wld-create-04-image.jpg,Image - Management-Domain-ESXi-Personality, ESXi 9.1.0.0100
+create,5,vcf-wld_16.jpg,vcf-wld-create-05-nsx-join-existing.jpg,NSX Manager - Join existing instance dc3-nsx01 (shared NSX)
+create,6,vcf-wld_15.jpg,vcf-wld-create-06-storage-vmfs-fc.jpg,Storage - VMFS on FC, Datastore VMFS01
+create,7,vcf-wld_14.jpg,vcf-wld-create-07-select-hosts.jpg,Select Hosts - the four commissioned blades
+create,8,vcf-wld_13.jpg,vcf-wld-create-08-vds-profile-select.jpg,Distributed Switch - NSX Traffic Separation profile
+create,9,vcf-wld_12.jpg,vcf-wld-create-09-vds-switches.jpg,Two distributed switches, Transport VLAN must be edited
+create,10,vcf-wld_11.jpg,vcf-wld-create-10-vds-transport-vlan.jpg,vDS detail - MTU 9000, Transport VLAN 32, TEP DHCP
+create,11,vcf-wld_10.jpg,vcf-wld-create-11-supervisor-config.jpg,vSphere Supervisor - Supervisor name, Service CIDR, control plane
+create,12,vcf-wld_9.jpg,vcf-wld-create-12-vpc-connectivity-profile.jpg,vSphere Supervisor - VPC Connectivity Profile dropdown (the spine wall)
+create,13,vcf-wld_8.jpg,vcf-wld-create-13-review-summary.jpg,Review summary (Creating new SSO domain)
+create,14,vcf-wld_7.jpg,vcf-wld-create-14-validation-in-progress.jpg,Validation in progress
+create,15,vcf-wld_6.jpg,vcf-wld-create-15-validation-succeeded.jpg,Validation - all five checks succeeded
+create,16,vcf-wld_5.jpg,vcf-wld-create-16-initiating-creation.jpg,Initiating workload domain creation
+create,17,vcf-wld_4.jpg,vcf-wld-create-17-deploy-validations.jpg,Deploy task - performing validations (4%)
+create,18,vcf-wld_3.jpg,vcf-wld-create-18-deploy-vcenter.jpg,Deploy task - deploying vCenter Server appliance (25%)
+create,19,vcf-wld_2.jpg,vcf-wld-create-19-deploy-vlcm-image.jpg,Deploy task - uploading vLCM image to vCenter (42%)
+create,20,vcf-wld_1.jpg,vcf-wld-create-20-two-workload-domains.jpg,Dashboard - 2 Workload Domains, 8 hosts used, Supervisor activating
