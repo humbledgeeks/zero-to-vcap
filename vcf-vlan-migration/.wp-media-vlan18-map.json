@@ -1,0 +1,182 @@
+{
+  "vlan-images/vlan-00-two-roads.png": {
+    "id": 2270,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-00-two-roads.png"
+  },
+  "vlan-images/vlan-00b-topology.png": {
+    "id": 2271,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-00b-topology.png"
+  },
+  "vlan-images/vlan-01-legacy-8u3-vcenter.jpg": {
+    "id": 2272,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-01-legacy-8u3-vcenter-scaled.jpg"
+  },
+  "vlan-images/vlan-04-deadend1-add-segment-system-tz.jpg": {
+    "id": 2273,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-04-deadend1-add-segment-system-tz-scaled.jpg"
+  },
+  "vlan-images/vlan-07-deadend1-segments-list-system-tz-0ports.jpg": {
+    "id": 2274,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-07-deadend1-segments-list-system-tz-0ports-scaled.jpg"
+  },
+  "vlan-images/vlan-08-deadend1-vcenter-no-dvpg.jpg": {
+    "id": 2275,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-08-deadend1-vcenter-no-dvpg-scaled.jpg"
+  },
+  "vlan-images/vlan-10-deadend2-hostswitch-overlay-only-edit.jpg": {
+    "id": 2276,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-10-deadend2-hostswitch-overlay-only-edit-scaled.jpg"
+  },
+  "vlan-images/vlan-16-deadend2-tz-dropdown-vlan-tz-highlighted.jpg": {
+    "id": 2277,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-16-deadend2-tz-dropdown-vlan-tz-highlighted-scaled.jpg"
+  },
+  "vlan-images/vlan-12-deadend2-both-tz-mode-standard-apply-greyed.jpg": {
+    "id": 2278,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-12-deadend2-both-tz-mode-standard-apply-greyed-scaled.jpg"
+  },
+  "vlan-images/vlan-18-fix-row-add-commit.jpg": {
+    "id": 2279,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-18-fix-row-add-commit-scaled.jpg"
+  },
+  "vlan-images/vlan-19-fix-apply-enabled.jpg": {
+    "id": 2280,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-19-fix-apply-enabled-scaled.jpg"
+  },
+  "vlan-images/vlan-23-fix-tnp-saved-banner.jpg": {
+    "id": 2281,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-23-fix-tnp-saved-banner-scaled.jpg"
+  },
+  "vlan-images/vlan-24-hostswitch-both-tz-mode-standard.jpg": {
+    "id": 2282,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-24-hostswitch-both-tz-mode-standard-scaled.jpg"
+  },
+  "vlan-images/vlan-27-rebuild-segment-correct-tz.jpg": {
+    "id": 2283,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-27-rebuild-segment-correct-tz-scaled.jpg"
+  },
+  "vlan-images/vlan-28-segments-list-correct-tz-success.jpg": {
+    "id": 2284,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-28-segments-list-correct-tz-success-scaled.jpg"
+  },
+  "vlan-images/vlan-29-four-hosts-success-esxi06-anomaly.jpg": {
+    "id": 2285,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-29-four-hosts-success-esxi06-anomaly-scaled.jpg"
+  },
+  "vlan-images/vlan-30-tz-list-vlan-tz-4-nodes.jpg": {
+    "id": 2286,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-30-tz-list-vlan-tz-4-nodes-scaled.jpg"
+  },
+  "vlan-images/vlan-33-dvpg-detail-vlan18-ephemeral.jpg": {
+    "id": 2287,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-33-dvpg-detail-vlan18-ephemeral-scaled.jpg"
+  },
+  "vlan-images/vlan-34-vm-nic-dropdown-seg-vlan18.jpg": {
+    "id": 2288,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-34-vm-nic-dropdown-seg-vlan18-scaled.jpg"
+  },
+  "vlan-images/vlan-35-ubuntu-dhcp-lease.jpg": {
+    "id": 2289,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-35-ubuntu-dhcp-lease-scaled.jpg"
+  },
+  "vlan-images/vlan-36-ubuntu-mirror-fetch.jpg": {
+    "id": 2290,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-36-ubuntu-mirror-fetch-scaled.jpg"
+  },
+  "vlan-images/vlan-37-ubuntu-vm-summary-vmfs01.jpg": {
+    "id": 2291,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-37-ubuntu-vm-summary-vmfs01-scaled.jpg"
+  },
+  "vlan-images/vlan-38-vcf-health-zero-findings.jpg": {
+    "id": 2292,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-38-vcf-health-zero-findings-scaled.jpg"
+  },
+  "vlan-images/vlan-39-vcf-domain-active.jpg": {
+    "id": 2293,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-39-vcf-domain-active-scaled.jpg"
+  },
+  "vlan-images/vlan-40-legacy-vmotion-vmk-9000.jpg": {
+    "id": 2294,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-40-legacy-vmotion-vmk-9000-scaled.jpg"
+  },
+  "vlan-images/vlan-31-vds-properties-mtu9000.jpg": {
+    "id": 2295,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/vlan-31-vds-properties-mtu9000-scaled.jpg"
+  },
+  "vlan-images/move-01-host-import-vms.jpg": {
+    "id": 2296,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-01-host-import-vms-scaled.jpg"
+  },
+  "vlan-images/move-02-source-vcenter-creds.jpg": {
+    "id": 2297,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-02-source-vcenter-creds-scaled.jpg"
+  },
+  "vlan-images/move-03-security-alert-cert.jpg": {
+    "id": 2298,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-03-security-alert-cert-scaled.jpg"
+  },
+  "vlan-images/move-04-source-vcenter-connected.jpg": {
+    "id": 2299,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-04-source-vcenter-connected-scaled.jpg"
+  },
+  "vlan-images/move-05-select-rhel9-poweredon.jpg": {
+    "id": 2300,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-05-select-rhel9-poweredon-scaled.jpg"
+  },
+  "vlan-images/move-06-compute-evc-error.jpg": {
+    "id": 2301,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-06-compute-evc-error-scaled.jpg"
+  },
+  "vlan-images/move-07-shutdown-guest-os.jpg": {
+    "id": 2302,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-07-shutdown-guest-os-scaled.jpg"
+  },
+  "vlan-images/move-08-guest-poweroff-complete.jpg": {
+    "id": 2303,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-08-guest-poweroff-complete-scaled.jpg"
+  },
+  "vlan-images/move-09-select-rhel9-poweredoff.jpg": {
+    "id": 2304,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-09-select-rhel9-poweredoff-scaled.jpg"
+  },
+  "vlan-images/move-10-compute-compat-success.jpg": {
+    "id": 2305,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-10-compute-compat-success-scaled.jpg"
+  },
+  "vlan-images/move-11-storage-vmfs01.jpg": {
+    "id": 2306,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-11-storage-vmfs01-scaled.jpg"
+  },
+  "vlan-images/move-12-select-folder.jpg": {
+    "id": 2307,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-12-select-folder-scaled.jpg"
+  },
+  "vlan-images/move-13-select-network-picker.jpg": {
+    "id": 2308,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-13-select-network-picker-scaled.jpg"
+  },
+  "vlan-images/move-14-network-mapping-kb56991.jpg": {
+    "id": 2309,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-14-network-mapping-kb56991-scaled.jpg"
+  },
+  "vlan-images/move-15-ready-to-complete-finish.jpg": {
+    "id": 2310,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-15-ready-to-complete-finish-scaled.jpg"
+  },
+  "vlan-images/move-16-relocate-task.jpg": {
+    "id": 2311,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-16-relocate-task-scaled.jpg"
+  },
+  "vlan-images/move-17-landed-poweredoff.jpg": {
+    "id": 2312,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-17-landed-poweredoff-scaled.jpg"
+  },
+  "vlan-images/move-18-poweredon-summary-ip.jpg": {
+    "id": 2313,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-18-poweredon-summary-ip-scaled.jpg"
+  },
+  "vlan-images/move-19-guest-ping-gateway.jpg": {
+    "id": 2314,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/07/move-19-guest-ping-gateway-scaled.jpg"
+  }
+}

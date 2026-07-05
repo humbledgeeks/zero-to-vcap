@@ -1,0 +1,11 @@
+# Ignore ALL of vlan-images/ by default. Only the redacted, post-referenced
+# images are force-added (git add -f) into commits. This guarantees the
+# UN-redacted originals never get committed: the _orig_backup/ and
+# _redact_backup/ folders, the raw honey_*/vlan_* upload dumps, and the
+# unreferenced spare screenshots all hold pre-redaction serverGuid / cert
+# fingerprint / admin-UPN data.
+vlan-images/*
+
+# Generated publish artifacts
+_build-vlan18-draft.md
+*-PREVIEW.docx
