@@ -1,25 +1,31 @@
 # How Easy Is It to Patch vCenter in VVF 9.1? I Applied a Critical Security Patch to Find Out
 
-I just finished standing up **VVF with vSAN** in my lab and migrating everything
-over to it, and honestly, I've been having a blast with it. As part of this whole
-*Zero to VCAP* journey, I've been keeping an eye out for good, real-world things to
-show off in both my **VVF** and **VCF** deployments, the kind of everyday task you
-actually end up doing at 9pm on a Tuesday. And wouldn't you know it, something
-popped up on its own: a **critical security patch** landed for my freshly deployed
-vCenter. Perfect. There's a fix sitting on a clock, so how much of my evening is it
-really going to cost me? That's exactly what this post is about.
+I just finished standing up **[VMware vSphere Foundation (VVF)](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vcenter-and-host-management/license-management-host-management/what-is-vmware-vsphere-foundation-vvf-solution-licensing-host-management.html)
+with vSAN** in my lab and migrating everything over to it, and honestly, I've been
+having a blast with it. As part of this whole
+[*Zero to VCAP*](https://humbledgeeks.com/zero-to-vcap-i-passed-the-broadcom-vcf-vcap-storage-exam/)
+journey, I've been keeping an eye out for good, real-world things to show off in
+both my **VVF** and the larger **VCF FlexPod** I've been documenting — the Cisco
+UCS + NetApp ASA stack I
+[stood up on Broadcom VCF](https://humbledgeeks.com/automating-a-cisco-ucs-flexpod-with-netapp-asa-a30-on-broadcom-vcf/)
+and then [licensed for VCF 9.1](https://humbledgeeks.com/licensing-my-flexpod-cisco-ucs-netapp-broadcom-vcf-91-deployment/)
+— the kind of everyday task you actually end up doing at 9pm on a Tuesday. And wouldn't you know it, something popped up on its own: a **critical
+security patch** landed for my freshly deployed vCenter. Perfect. There's a fix
+sitting on a clock, so how much of my evening is it really going to cost me? That's
+exactly what this post is about.
 
 If you've run vSphere for any length of time, you know keeping updates in check
 used to be a bit of a challenge. The staging, the mounting, the migration
 assistant, the white-knuckle window. It all added up. With the **new lifecycle
 management in VVF 9.1**, a lot of that is just gone. On VVF 9.1, patching vCenter is
-**reduced-downtime by default**, driven entirely from the vSphere Client, and it
-barely interrupts anything.
+**[reduced-downtime](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/9-0/vcenter-upgrade/reduced-downtime-upgrade.html)
+by default**, driven entirely from the vSphere Client, and it barely interrupts
+anything.
 
 And the best part? This is the small version of the story. Once I've shown how
 painless a single vCenter patch is here, I can't wait to turn around and show how
-easy this same thing is going to be on my much larger **VCF 9.1** deployment, so
-let's start here and build up to that.
+easy this same thing is going to be on my much larger **VCF 9.1** FlexPod
+deployment, so let's start here and build up to that.
 
 ---
 
@@ -35,9 +41,10 @@ It's the kind of update you actually have to move on, on a clock, because it's
 closing a security hole rather than adding a feature.
 
 It's also **vCenter only**. The ESXi hosts get their own treatment through
-vSphere Lifecycle Manager cluster images, and that's a separate post. Mixing the
-two into one story is how you end up with a half-finished maintenance window and
-no clean rollback point. Control plane first, cleanly.
+[vSphere Lifecycle Manager](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/managing-host-and-cluster-lifecycle/about-vsphere-lifecycle-manager-new.html)
+cluster images, and that's a separate post. Mixing the two into one story is how
+you end up with a half-finished maintenance window and no clean rollback point.
+Control plane first, cleanly.
 
 And here's the part that matters most for the "is VVF easy to live with" question:
 I did the entire thing **from the vSphere Client**. No VAMI on port 5480, no ISO
@@ -51,10 +58,11 @@ appliance, the cutover, all of it lives under one Updates tab now.
 Two ideas up front, because they explain every screen that follows.
 
 **Lifecycle is in the vSphere Client, not the appliance.** In VVF there's no SDDC
-Manager orchestrating a fleet. vCenter owns its own lifecycle. You drive it from
-**[vCenter] › Updates › vCenter Server › Upgrade**, pointed at the **online
-depot**. The workflow finds the compatible patch, updates its own vLCM plugin,
-runs readiness pre-checks, and only then lets you proceed.
+Manager orchestrating a fleet. vCenter owns its own
+[lifecycle](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/9-0/vcenter-upgrade.html).
+You drive it from **[vCenter] › Updates › vCenter Server › Upgrade**, pointed at
+the **online depot**. The workflow finds the compatible patch, updates its own
+vLCM plugin, runs readiness pre-checks, and only then lets you proceed.
 
 **Reduced downtime means a new appliance and a switchover.** This is the piece
 worth understanding. Rather than upgrading the running appliance in place, VVF
@@ -142,7 +150,8 @@ on.
 
 Don't rubber-stamp this. Because reduced downtime replaces the appliance, this
 backup is your actual recovery path if the switchover goes wrong. Take a real
-file-based backup first, then check the box honestly.
+[file-based backup](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/9-0/vcenter-installation-and-setup/file-based-backup-and-restore-of-a-vcenter-server-environment/schedule-a-file-based-backup.html)
+first, then check the box honestly.
 
 ![The in-workflow vCenter Backup acknowledgment gate](https://humbledgeeks.com/wp-content/uploads/2026/07/upgrade_27-scaled.jpg)
 
@@ -238,8 +247,11 @@ clock, that's exactly the property you want.
 
 If patching a single vCenter is this painless, the obvious next question is what
 happens when there's a whole fleet to move. So next up I'm taking on a much larger
-**VCF upgrade** (**[link to your next topic]**) to see whether the easy-button
-lifecycle story holds up once SDDC Manager is orchestrating the entire stack.
+**VCF upgrade** (**[link to your next topic]**) on the same FlexPod stack I've
+already [wired into Active Directory](https://humbledgeeks.com/connecting-my-flexpod-vcf-91-deployment-to-active-directory-vcf-single-sign-on/)
+and [run Kubernetes (and DOOM) on](https://humbledgeeks.com/running-doom-on-kubernetes-vsphere-kubernetes-service-vks-on-my-flexpod-vcf-91/),
+to see whether the easy-button lifecycle story holds up once SDDC Manager is
+orchestrating the entire stack.
 
 If you're sitting on a VVF 9.1 vCenter with that yellow banner up top: it's a
 smaller lift than you think. Open the Updates tab and see what it's offering you.
