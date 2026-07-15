@@ -1,0 +1,190 @@
+{
+  "vks-images/vks-01-cert-warning.jpg": {
+    "id": 2209,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-01-cert-warning-scaled.jpg"
+  },
+  "vks-images/vks-02-vcf-sso-login.jpg": {
+    "id": 2210,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-02-vcf-sso-login-scaled.jpg"
+  },
+  "vks-images/vks-03-esxi91-ucs-host.jpg": {
+    "id": 2211,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-03-esxi91-ucs-host-scaled.jpg"
+  },
+  "vks-images/vks-04-supervisor-namespaces.jpg": {
+    "id": 2212,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-04-supervisor-namespaces-scaled.jpg"
+  },
+  "vks-images/vks-05-supervisors-tab.jpg": {
+    "id": 2213,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-05-supervisors-tab-scaled.jpg"
+  },
+  "vks-images/vks-06-supervisor-summary.jpg": {
+    "id": 2214,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-06-supervisor-summary-scaled.jpg"
+  },
+  "vks-images/vks-07-workload-network-nsxvpc.jpg": {
+    "id": 2215,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-07-workload-network-nsxvpc-scaled.jpg"
+  },
+  "vks-images/vks-08-external-ip-blocks.jpg": {
+    "id": 2216,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-08-external-ip-blocks-scaled.jpg"
+  },
+  "vks-images/vks-09-namespaces-new.jpg": {
+    "id": 2217,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-09-namespaces-new-scaled.jpg"
+  },
+  "vks-images/vks-10-namespace-location.jpg": {
+    "id": 2218,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-10-namespace-location-scaled.jpg"
+  },
+  "vks-images/vks-11-namespace-config.jpg": {
+    "id": 2219,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-11-namespace-config-scaled.jpg"
+  },
+  "vks-images/vks-12-namespace-zones.jpg": {
+    "id": 2220,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-12-namespace-zones-scaled.jpg"
+  },
+  "vks-images/vks-13-namespace-review.jpg": {
+    "id": 2221,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-13-namespace-review-scaled.jpg"
+  },
+  "vks-images/vks-14-namespace-created.jpg": {
+    "id": 2222,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-14-namespace-created-scaled.jpg"
+  },
+  "vks-images/vks-15-add-storage-button.jpg": {
+    "id": 2223,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-15-add-storage-button-scaled.jpg"
+  },
+  "vks-images/vks-16-select-storage-policy.jpg": {
+    "id": 2224,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-16-select-storage-policy-scaled.jpg"
+  },
+  "vks-images/vks-17-storage-policy-ok.jpg": {
+    "id": 2225,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-17-storage-policy-ok-scaled.jpg"
+  },
+  "vks-images/vks-18-storage-added.jpg": {
+    "id": 2226,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-18-storage-added-scaled.jpg"
+  },
+  "vks-images/vks-19-namespace-pre-vmclass.jpg": {
+    "id": 2227,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-19-namespace-pre-vmclass-scaled.jpg"
+  },
+  "vks-images/vks-20-add-vmclass-list.jpg": {
+    "id": 2228,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-20-add-vmclass-list-scaled.jpg"
+  },
+  "vks-images/vks-21-add-vmclass-select.jpg": {
+    "id": 2229,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-21-add-vmclass-select-scaled.jpg"
+  },
+  "vks-images/vks-22-manage-vmclass-swap.jpg": {
+    "id": 2230,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-22-manage-vmclass-swap-scaled.jpg"
+  },
+  "vks-images/vks-23-vmclass-result.jpg": {
+    "id": 2231,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-23-vmclass-result-scaled.jpg"
+  },
+  "vks-images/vks-24-vmservice-card.jpg": {
+    "id": 2232,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-24-vmservice-card-scaled.jpg"
+  },
+  "vks-images/vks-25-content-library.jpg": {
+    "id": 2233,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-25-content-library-scaled.jpg"
+  },
+  "vks-images/vks-26-content-library-detail.jpg": {
+    "id": 2234,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-26-content-library-detail-scaled.jpg"
+  },
+  "vks-images/vks-27-cli-tools-page.jpg": {
+    "id": 2235,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-27-cli-tools-page-scaled.jpg"
+  },
+  "vks-images/vks-28-cli-download.jpg": {
+    "id": 2236,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-28-cli-download.jpg"
+  },
+  "vks-images/vks-29-vcf-login-success.jpg": {
+    "id": 2237,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-29-vcf-login-success-scaled.jpg"
+  },
+  "vks-images/vks-30-context-harbor-warning.jpg": {
+    "id": 2238,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-30-context-harbor-warning-scaled.jpg"
+  },
+  "vks-images/vks-31-kubectl-version.jpg": {
+    "id": 2239,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-31-kubectl-version-scaled.jpg"
+  },
+  "vks-images/vks-32-kubectl-get-ns.jpg": {
+    "id": 2240,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-32-kubectl-get-ns-scaled.jpg"
+  },
+  "vks-images/vks-43-create-cluster-resources.jpg": {
+    "id": 2241,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-43-create-cluster-resources-scaled.jpg"
+  },
+  "vks-images/vks-44-config-type-custom.jpg": {
+    "id": 2242,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-44-config-type-custom-scaled.jpg"
+  },
+  "vks-images/vks-45-general-settings.jpg": {
+    "id": 2243,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-45-general-settings-scaled.jpg"
+  },
+  "vks-images/vks-46-controlplane-3replicas.jpg": {
+    "id": 2244,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-46-controlplane-3replicas-scaled.jpg"
+  },
+  "vks-images/vks-47-nodepool-2replicas.jpg": {
+    "id": 2245,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-47-nodepool-2replicas-scaled.jpg"
+  },
+  "vks-images/vks-48-review-finish.jpg": {
+    "id": 2246,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-48-review-finish-scaled.jpg"
+  },
+  "vks-images/vks-49-cluster-being-created.jpg": {
+    "id": 2247,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-49-cluster-being-created-scaled.jpg"
+  },
+  "vks-images/vks-50-sync-library-item.jpg": {
+    "id": 2248,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-50-sync-library-item-scaled.jpg"
+  },
+  "vks-images/vks-51-cluster-available.jpg": {
+    "id": 2249,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-51-cluster-available-scaled.jpg"
+  },
+  "vks-images/vks-52-guest-get-nodes.jpg": {
+    "id": 2250,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-52-guest-get-nodes-scaled.jpg"
+  },
+  "vks-images/vks-53-kubedoom-apply.jpg": {
+    "id": 2251,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-53-kubedoom-apply-scaled.jpg"
+  },
+  "vks-images/vks-54-kubedoom-svc-externalip.jpg": {
+    "id": 2252,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-54-kubedoom-svc-externalip-scaled.jpg"
+  },
+  "vks-images/vks-55-tightvnc-connect.jpg": {
+    "id": 2253,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-55-tightvnc-connect.jpg"
+  },
+  "vks-images/vks-56-vnc-auth.jpg": {
+    "id": 2254,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-56-vnc-auth.jpg"
+  },
+  "vks-images/vks-57-doom-screen.jpg": {
+    "id": 2255,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/vks-57-doom-screen-scaled.jpg"
+  }
+}

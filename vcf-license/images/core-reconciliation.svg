@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 470" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="arrow4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#607D8B"/>
+    </marker>
+    <filter id="shadow4" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#9AA7B1" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <text x="490" y="34" text-anchor="middle" font-size="22" font-weight="bold" fill="#1A2733">Core-Count Reconciliation</text>
+  <text x="490" y="58" text-anchor="middle" font-size="13" fill="#5A6872">Do this before assigning any license</text>
+
+  <!-- two reads -->
+  <g filter="url(#shadow4)">
+    <rect x="120" y="84" width="300" height="56" rx="9" fill="#E1F1FB" stroke="#0091DA" stroke-width="2"/>
+    <rect x="560" y="84" width="300" height="56" rx="9" fill="#FCE8EC" stroke="#CC092F" stroke-width="2"/>
+  </g>
+  <text x="270" y="108" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#00628F">Cores you HAVE (VCF Operations)</text>
+  <text x="270" y="128" text-anchor="middle" font-size="12" fill="#00628F">Assets License Status → 264 cores</text>
+  <text x="710" y="108" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#8E0A26">Cores you BOUGHT (Business Services)</text>
+  <text x="710" y="128" text-anchor="middle" font-size="12" fill="#8E0A26">VCF (cores) allocated → 256 cores</text>
+
+  <line x1="270" y1="140" x2="430" y2="176" stroke="#607D8B" stroke-width="2" marker-end="url(#arrow4)"/>
+  <line x1="710" y1="140" x2="550" y2="176" stroke="#607D8B" stroke-width="2" marker-end="url(#arrow4)"/>
+
+  <!-- decision diamond -->
+  <g filter="url(#shadow4)">
+    <polygon points="490,180 640,240 490,300 340,240" fill="#FFF7E6" stroke="#E0A800" stroke-width="2"/>
+  </g>
+  <text x="490" y="234" text-anchor="middle" font-size="13" font-weight="bold" fill="#7A5B00">Cores ≤</text>
+  <text x="490" y="252" text-anchor="middle" font-size="13" font-weight="bold" fill="#7A5B00">subscription?</text>
+
+  <!-- YES path -->
+  <line x1="640" y1="240" x2="770" y2="240" stroke="#2E7D32" stroke-width="2.5" marker-end="url(#arrow4)"/>
+  <text x="700" y="230" text-anchor="middle" font-size="12" font-weight="bold" fill="#2E7D32">YES</text>
+  <g filter="url(#shadow4)">
+    <rect x="772" y="214" width="180" height="52" rx="9" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"/>
+  </g>
+  <text x="862" y="238" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1B5E20">Proceed to</text>
+  <text x="862" y="255" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1B5E20">registration</text>
+
+  <!-- NO path -->
+  <line x1="490" y1="300" x2="490" y2="338" stroke="#C62828" stroke-width="2.5" marker-end="url(#arrow4)"/>
+  <text x="512" y="324" text-anchor="middle" font-size="12" font-weight="bold" fill="#C62828">NO — over capacity</text>
+
+  <!-- two options -->
+  <g filter="url(#shadow4)">
+    <rect x="90" y="342" width="360" height="96" rx="10" fill="#FFFFFF" stroke="#546E7A" stroke-width="1.8"/>
+    <rect x="530" y="342" width="360" height="96" rx="10" fill="#FBE9E7" stroke="#D84315" stroke-width="1.8"/>
+  </g>
+  <text x="270" y="366" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#37474F">Option A · Lab — trim cores</text>
+  <text x="270" y="386" text-anchor="middle" font-size="11" fill="#455A64">UCS BIOS policy → Core Multi Processing</text>
+  <text x="270" y="402" text-anchor="middle" font-size="11" fill="#455A64">reboot, one host at a time, then re-check</text>
+  <text x="270" y="424" text-anchor="middle" font-size="10.5" font-style="italic" fill="#78909C">loops back to the comparison above</text>
+
+  <text x="710" y="366" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#BF360C">Option B · Production — buy capacity</text>
+  <text x="710" y="386" text-anchor="middle" font-size="11" fill="#BF360C">expand the subscription to cover real cores</text>
+  <text x="710" y="402" text-anchor="middle" font-size="11" fill="#BF360C">never disable cores to dodge licensing</text>
+  <text x="710" y="424" text-anchor="middle" font-size="10.5" font-style="italic" fill="#BF360C">the correct, compliant fix</text>
+
+  <!-- loop arrow A back to diamond -->
+  <line x1="190" y1="342" x2="380" y2="252" stroke="#90A4AE" stroke-width="1.6" stroke-dasharray="5,4" marker-end="url(#arrow4)"/>
+  <!-- option B to proceed -->
+  <line x1="862" y1="342" x2="862" y2="268" stroke="#2E7D32" stroke-width="1.6" stroke-dasharray="5,4" marker-end="url(#arrow4)"/>
+</svg>

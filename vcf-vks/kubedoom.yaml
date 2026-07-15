@@ -1,0 +1,73 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kubedoom
+  labels:
+    # VKS enforces Pod Security Admission. Kubedoom needs a privileged
+    # pod, so this namespace must be labeled privileged or the pod is rejected.
+    pod-security.kubernetes.io/enforce: privileged
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kubedoom
+  namespace: kubedoom
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: kubedoom
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  # cluster-admin so Kubedoom can list and DELETE pods cluster-wide
+  # (killing a demon in Doom = deleting a pod).
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: kubedoom
+  namespace: kubedoom
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubedoom
+  namespace: kubedoom
+  labels:
+    app: kubedoom
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubedoom
+  template:
+    metadata:
+      labels:
+        app: kubedoom
+    spec:
+      serviceAccountName: kubedoom
+      containers:
+      - name: kubedoom
+        image: ghcr.io/storax/kubedoom:latest
+        # By default kubedoom watches the "default" namespace.
+        # Pods there show up as demons. Change with: args: ["-namespace", "<ns>"]
+        ports:
+        - containerPort: 5900
+          name: vnc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubedoom
+  namespace: kubedoom
+spec:
+  # LoadBalancer => NSX VPC allocates an external IP from your
+  # 10.103.50.0/24 block. This is the part that exercises the whole
+  # north-south path we just fixed.
+  type: LoadBalancer
+  selector:
+    app: kubedoom
+  ports:
+  - name: vnc
+    port: 5900
+    targetPort: 5900

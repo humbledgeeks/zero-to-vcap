@@ -1,0 +1,246 @@
+{
+  "ad-sso-images/01-ops-login.jpg": {
+    "id": 2138,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/01-ops-login-1-scaled.jpg"
+  },
+  "ad-sso-images/02-launchpad.jpg": {
+    "id": 2139,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/02-launchpad-scaled.jpg"
+  },
+  "ad-sso-images/03-home-manage-menu.jpg": {
+    "id": 2140,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/03-home-manage-menu-scaled.jpg"
+  },
+  "ad-sso-images/04-identity-access-getstarted.jpg": {
+    "id": 2141,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/04-identity-access-getstarted-scaled.jpg"
+  },
+  "ad-sso-images/05-getstarted-configure-sso.jpg": {
+    "id": 2142,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/05-getstarted-configure-sso-scaled.jpg"
+  },
+  "ad-sso-images/06-prerequisites-unchecked.jpg": {
+    "id": 2143,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/06-prerequisites-unchecked-scaled.jpg"
+  },
+  "ad-sso-images/07-prerequisites-checked.jpg": {
+    "id": 2144,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/07-prerequisites-checked-scaled.jpg"
+  },
+  "ad-sso-images/08-configure-sso-0pct.jpg": {
+    "id": 2145,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/08-configure-sso-0pct-scaled.jpg"
+  },
+  "ad-sso-images/09-deployment-mode-instance.jpg": {
+    "id": 2146,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/09-deployment-mode-instance-scaled.jpg"
+  },
+  "ad-sso-images/10-deployment-broker-selected.jpg": {
+    "id": 2147,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/10-deployment-broker-selected-scaled.jpg"
+  },
+  "ad-sso-images/11-configure-sso-25pct.jpg": {
+    "id": 2148,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/11-configure-sso-25pct-scaled.jpg"
+  },
+  "ad-sso-images/12-choose-idp-adldap-tile.jpg": {
+    "id": 2149,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/12-choose-idp-adldap-tile-scaled.jpg"
+  },
+  "ad-sso-images/13-choose-idp-next.jpg": {
+    "id": 2150,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/13-choose-idp-next-scaled.jpg"
+  },
+  "ad-sso-images/14-configure-idp-button.jpg": {
+    "id": 2151,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/14-configure-idp-button-scaled.jpg"
+  },
+  "ad-sso-images/15-directory-info-blank-top.jpg": {
+    "id": 2152,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/15-directory-info-blank-top-scaled.jpg"
+  },
+  "ad-sso-images/16-directory-info-blank-mid.jpg": {
+    "id": 2153,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/16-directory-info-blank-mid-scaled.jpg"
+  },
+  "ad-sso-images/17-directory-info-top-filled.jpg": {
+    "id": 2154,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/17-directory-info-top-filled-scaled.jpg"
+  },
+  "ad-sso-images/19-directory-info-certs-binddn.jpg": {
+    "id": 2155,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/19-directory-info-certs-binddn-scaled.jpg"
+  },
+  "ad-sso-images/18-directory-info-password.jpg": {
+    "id": 2156,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/18-directory-info-password-scaled.jpg"
+  },
+  "ad-sso-images/20-directory-info-review.jpg": {
+    "id": 2157,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/20-directory-info-review-scaled.jpg"
+  },
+  "ad-sso-images/21-configure-idp-2of4.jpg": {
+    "id": 2158,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/21-configure-idp-2of4-scaled.jpg"
+  },
+  "ad-sso-images/22-provisioning-review-dir.jpg": {
+    "id": 2159,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/22-provisioning-review-dir-scaled.jpg"
+  },
+  "ad-sso-images/23-provisioning-attr-mappings.jpg": {
+    "id": 2160,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/23-provisioning-attr-mappings-scaled.jpg"
+  },
+  "ad-sso-images/24-group-prov-blank.jpg": {
+    "id": 2161,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/24-group-prov-blank-scaled.jpg"
+  },
+  "ad-sso-images/25-group-prov-basedn.jpg": {
+    "id": 2162,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/25-group-prov-basedn-scaled.jpg"
+  },
+  "ad-sso-images/26-group-prov-list.jpg": {
+    "id": 2163,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/26-group-prov-list-scaled.jpg"
+  },
+  "ad-sso-images/27-user-prov-firstpass.jpg": {
+    "id": 2164,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/27-user-prov-firstpass-scaled.jpg"
+  },
+  "ad-sso-images/28-provisioning-error.jpg": {
+    "id": 2165,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/28-provisioning-error-scaled.jpg"
+  },
+  "ad-sso-images/29-group-prov-selectall.jpg": {
+    "id": 2166,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/29-group-prov-selectall-scaled.jpg"
+  },
+  "ad-sso-images/30-user-prov-blank.jpg": {
+    "id": 2167,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/30-user-prov-blank-scaled.jpg"
+  },
+  "ad-sso-images/31-provisioning-review.jpg": {
+    "id": 2168,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/31-provisioning-review-scaled.jpg"
+  },
+  "ad-sso-images/32-provisioning-complete-next.jpg": {
+    "id": 2169,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/32-provisioning-complete-next-scaled.jpg"
+  },
+  "ad-sso-images/33-test-login-ready.jpg": {
+    "id": 2170,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/33-test-login-ready-scaled.jpg"
+  },
+  "ad-sso-images/34-cert-warning.jpg": {
+    "id": 2171,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/34-cert-warning-scaled.jpg"
+  },
+  "ad-sso-images/35-directory-login.jpg": {
+    "id": 2172,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/35-directory-login-scaled.jpg"
+  },
+  "ad-sso-images/36-test-login-success.jpg": {
+    "id": 2173,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/36-test-login-success-scaled.jpg"
+  },
+  "ad-sso-images/37-test-login-done.jpg": {
+    "id": 2174,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/37-test-login-done-scaled.jpg"
+  },
+  "ad-sso-images/38-configure-sso-50pct.jpg": {
+    "id": 2175,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/38-configure-sso-50pct-scaled.jpg"
+  },
+  "ad-sso-images/39-enable-sso-list.jpg": {
+    "id": 2176,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/39-enable-sso-list-scaled.jpg"
+  },
+  "ad-sso-images/40-enable-sso-selected.jpg": {
+    "id": 2177,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/40-enable-sso-selected-scaled.jpg"
+  },
+  "ad-sso-images/41-enable-sso-confirm-unchecked.jpg": {
+    "id": 2178,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/41-enable-sso-confirm-unchecked-scaled.jpg"
+  },
+  "ad-sso-images/42-enable-sso-confirm-checked.jpg": {
+    "id": 2179,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/42-enable-sso-confirm-checked-scaled.jpg"
+  },
+  "ad-sso-images/43-enable-sso-inprogress.jpg": {
+    "id": 2180,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/43-enable-sso-inprogress-scaled.jpg"
+  },
+  "ad-sso-images/44-configure-sso-75pct.jpg": {
+    "id": 2181,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/44-configure-sso-75pct-scaled.jpg"
+  },
+  "ad-sso-images/45-assign-roles-groups.jpg": {
+    "id": 2182,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/45-assign-roles-groups-scaled.jpg"
+  },
+  "ad-sso-images/46-assign-vcf-admins-checked.jpg": {
+    "id": 2183,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/46-assign-vcf-admins-checked-scaled.jpg"
+  },
+  "ad-sso-images/47-assign-three-groups.jpg": {
+    "id": 2184,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/47-assign-three-groups-scaled.jpg"
+  },
+  "ad-sso-images/48-assign-vcf-admins-only.jpg": {
+    "id": 2185,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/48-assign-vcf-admins-only-scaled.jpg"
+  },
+  "ad-sso-images/49-scope-dropdown.jpg": {
+    "id": 2186,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/49-scope-dropdown-scaled.jpg"
+  },
+  "ad-sso-images/50-role-dropdown.jpg": {
+    "id": 2187,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/50-role-dropdown-scaled.jpg"
+  },
+  "ad-sso-images/51-scope-role-selected.jpg": {
+    "id": 2188,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/51-scope-role-selected-scaled.jpg"
+  },
+  "ad-sso-images/52-roles-assigned-success.jpg": {
+    "id": 2189,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/52-roles-assigned-success-scaled.jpg"
+  },
+  "ad-sso-images/53-configure-sso-100pct.jpg": {
+    "id": 2190,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/53-configure-sso-100pct-scaled.jpg"
+  },
+  "ad-sso-images/54-finish-setup-modal.jpg": {
+    "id": 2191,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/54-finish-setup-modal-scaled.jpg"
+  },
+  "ad-sso-images/55-overview-instances-3of3.jpg": {
+    "id": 2192,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/55-overview-instances-3of3-scaled.jpg"
+  },
+  "ad-sso-images/56-overview-management-red.jpg": {
+    "id": 2193,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/56-overview-management-red-scaled.jpg"
+  },
+  "ad-sso-images/57-management-join-selected.jpg": {
+    "id": 2194,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/57-management-join-selected-scaled.jpg"
+  },
+  "ad-sso-images/58-join-broker-unselected.jpg": {
+    "id": 2195,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/58-join-broker-unselected-scaled.jpg"
+  },
+  "ad-sso-images/59-join-broker-selected.jpg": {
+    "id": 2196,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/59-join-broker-selected-scaled.jpg"
+  },
+  "ad-sso-images/60-join-confirm.jpg": {
+    "id": 2197,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/60-join-confirm-scaled.jpg"
+  },
+  "ad-sso-images/61-overview-all-configured.jpg": {
+    "id": 2198,
+    "url": "https://humbledgeeks.com/wp-content/uploads/2026/06/61-overview-all-configured-scaled.jpg"
+  }
+}
