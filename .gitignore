@@ -11,3 +11,14 @@ __pycache__/
 *.pyo
 .venv/
 venv/
+
+
+# Quarantined screenshots with exposed credentials — never commit
+_SENSITIVE-DO-NOT-COMMIT/
+
+# VCF 9.1 Lifecycle post: raw/unredacted working images and the pre-redaction preview.
+# These contain admin.allen@humbledgeeks.com and the software depot ID; this repo is
+# public and git history is permanent, so they stay local.
+VCF-9.1-Lifecycle-Upgrades/images/_inbox/
+VCF-9.1-Lifecycle-Upgrades/images/_orig_backup/
+VCF-9.1-Lifecycle-Upgrades/*-PREVIEW.docx
