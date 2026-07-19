@@ -26,7 +26,7 @@ Allen **passed the VCAP-VCF Storage exam (3V0-23.25, "Advanced VMware Cloud Foun
 | 8 | `vcf-license/vcf-active-directory-sso.md` | Connecting My FlexPod VCF 9.1 Deployment to Active Directory (VCF Single Sign-On) | **2199** | **LIVE** | https://humbledgeeks.com/connecting-my-flexpod-vcf-91-deployment-to-active-directory-vcf-single-sign-on/ |
 | 9 | `vcf-vks/vcf-vks-kubernetes-doom.md` | Running DOOM on Kubernetes: vSphere Kubernetes Service (VKS) on My FlexPod VCF 9.1 | **2256** | **LIVE** | https://humbledgeeks.com/running-doom-on-kubernetes-vsphere-kubernetes-service-vks-on-my-flexpod-vcf-91/ |
 | 10 | `vvf-vcenter-upgrade/zero-to-vcap-vvf91-vcenter-upgrade.md` | How Easy Is It to Patch vCenter in VVF 9.1? I Applied a Critical Security Patch to Find Out | **2567** | **LIVE** | https://humbledgeeks.com/how-easy-is-it-to-patch-vcenter-in-vvf-91-i-applied-a-critical-security-patch-to-find-out/ |
-| 11 | `VCF-9.1-Lifecycle-Upgrades/draft/zero-to-vcap-vcf91-lifecycle-upgrades.md` | VCF 9.1 Lifecycle: One Control Plane, and the Real Work to Get There | **2595** | **DRAFT** | https://humbledgeeks.com/?p=2595 |
+| 11 | `VCF-9.1-Lifecycle-Upgrades/draft/zero-to-vcap-vcf91-lifecycle-upgrades.md` | VCF 9.1 Lifecycle: One Control Plane, and the Real Work to Get There | **2595** | **LIVE** | https://humbledgeeks.com/vcf-91-lifecycle-one-control-plane-and-the-real-work-to-get-there/ |
 
 ### Most Recent Work (Session 2026-07-15) — VVF 9.1 vCenter security-patch post PUSHED to WP (#2567, DRAFT)
 
@@ -98,7 +98,8 @@ The PowerShell automation scripts and blog post draft for the FlexPod post live 
 
 - REST API base: `https://humbledgeeks.com/wp-json/wp/v2/`
 - Credentials: stored in `.env` (never commit — see `.env.example`)
-- Post IDs: FlexPod automation **1794** · VCAP Storage pass **2079** · FlexPod licensing **2125** · AD SSO **2199** · VKS/DOOM **2256** · VVF vCenter patch **2567** (all live) · VCF 9.1 Lifecycle **2595** (draft)
+- Post IDs: FlexPod automation **1794** · VCAP Storage pass **2079** · FlexPod licensing **2125** · AD SSO **2199** · VKS/DOOM **2256** · VVF vCenter patch **2567** · VCF 9.1 Lifecycle **2595** (all live)
+- **Publishing gotchas learned 2026-07-19:** (1) `publish.py` resets `featured_media` to 0 on every run, so re-set the featured image after any republish. (2) Re-uploading a changed image under the same filename reuses the URL and Cloudflare keeps serving the stale copy; bump a version marker in the filename instead (see `VCF-9.1-Lifecycle-Upgrades/build_wp_draft.py`). (3) The site 403s scripted requests, so live pages cannot be verified programmatically; check rendering in a browser.
 
 ### Theme / Syntax Highlighting
 
