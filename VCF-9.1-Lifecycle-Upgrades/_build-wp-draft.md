@@ -22,9 +22,9 @@ Here is the part that made it work you had to think about. Aria Suite Lifecycle 
 
 The practical result was two consoles, two binary repositories, two sets of prechecks, and an upgrade order you had to memorize and hold in your head. The order most of us ran was Aria stack first through Aria Suite Lifecycle, then SDDC Manager, then NSX, then vCenter, then ESXi. Get that wrong and you found out the hard way.
 
-![The SDDC Manager dashboard, the single-instance console I ran core lifecycle from, with workload domains and upgrades tracked separately from the Aria stack](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-01-old-way-upgrade_51-scaled.jpg)
+![The SDDC Manager dashboard, the single-instance console I ran core lifecycle from, with workload domains and upgrades tracked separately from the Aria stack](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-01-old-way-upgrade_51-scaled.jpg)
 
-![SDDC Manager Binary Management, where I pulled the core bundles for vCenter, NSX, ESX, and SDDC Manager itself before any of it moved into VCF Operations](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-01-old-way-upgrade_1-scaled.jpg)
+![SDDC Manager Binary Management, where I pulled the core bundles for vCenter, NSX, ESX, and SDDC Manager itself before any of it moved into VCF Operations](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-01-old-way-upgrade_1-scaled.jpg)
 
 One more piece of context from this era, because it explains a change you will notice. vSphere Lifecycle Manager baselines still existed then. VCF 9.0 removed baseline support in favor of single image management, and it retired a batch of other long-serving features at the same time: Enhanced Linked Mode, Integrated Windows Authentication, Storage IO Control, Host Profiles, and vVols. If you are coming from an older design that leaned on any of those, that is its own planning conversation.
 
@@ -42,11 +42,11 @@ The second is SDDC Lifecycle, which owns the instance-level core components: vCe
 
 Both services are driven from the VCF Operations console, under Build > Lifecycle. The Software Depot also runs as a component in the same cluster, so binary management is centralized instead of duplicated across two tools.
 
-![The VCF Management components list in VCF Operations. Fleet lifecycle, SDDC lifecycle, Software depot, Identity broker, and Salt each show up as their own service with an FQDN and version, which is the whole architecture in one screen](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-02-architecture-upgrade_45-scaled.jpg)
+![The VCF Management components list in VCF Operations. Fleet lifecycle, SDDC lifecycle, Software depot, Identity broker, and Salt each show up as their own service with an FQDN and version, which is the whole architecture in one screen](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-02-architecture-upgrade_45-scaled.jpg)
 
 One thing to know before you build muscle memory around it. The SDDC Manager UI is being deprecated and will be removed in a future release. After you are on 9.1, you perform lifecycle activities from VCF Operations. SDDC Manager still exists in the plumbing, and as you will see it still has a role during the migration, but it is not where you are meant to live day to day anymore.
 
-![The same SDDC Manager UI in 9.1, now carrying a deprecation banner that points lifecycle work to VCF Operations. It still runs, but it is on its way out](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-01-old-way-upgrade_50-scaled.jpg)
+![The same SDDC Manager UI in 9.1, now carrying a deprecation banner that points lifecycle work to VCF Operations. It still runs, but it is on its way out](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-01-old-way-upgrade_50-scaled.jpg)
 
 ---
 
@@ -64,9 +64,9 @@ Now the payoff, which is the governing rule for sequencing. You upgrade the flee
 
 Read that rule again, because it is doing a lot of work. It replaces almost all of the sequencing knowledge you used to carry in your head for the two-tool model. Instead of memorizing Aria-then-SDDC-then-NSX-then-vCenter-then-ESXi across two consoles, you remember fleet before instance, from the managing instance outward. That is the whole thing.
 
-![A component detail view that separates the fleet components FQDN from the instance components FQDN. That split is what decides which services are shared across instances and which are per instance](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-02-architecture-upgrade_26-scaled.jpg)
+![A component detail view that separates the fleet components FQDN from the instance components FQDN. That split is what decides which services are shared across instances and which are per instance](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-02-architecture-upgrade_26-scaled.jpg)
 
-![Fleet Management in VCF Operations, where the console sees VCF Management, the VCF instances, and any standalone vCenters as one fleet](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-02-architecture-upgrade_30-scaled.jpg)
+![Fleet Management in VCF Operations, where the console sees VCF Management, the VCF instances, and any standalone vCenters as one fleet](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-02-architecture-upgrade_30-scaled.jpg)
 
 ---
 
@@ -82,17 +82,17 @@ For each component, select a version from the Target version dropdown and click 
 
 Then, in the Management component target version section, click Run prechecks for the component. Remediate anything the prechecks flag before you go further. Prechecks are the gate, and a warning here is the upgrade telling you what it is about to trip on. Once it is clean, click Upgrade for that component.
 
-![Change target version opens the Set Target Version dialog, where I pick the fleet target build from the dropdown and set it](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-03-management-upgrade-upgrade_42-scaled.jpg)
+![Change target version opens the Set Target Version dialog, where I pick the fleet target build from the dropdown and set it](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-03-management-upgrade-upgrade_42-scaled.jpg)
 
-![With the target set, every management component resolves to a current-to-target path and reads Ready for upgrade](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-03-management-upgrade-upgrade_19-scaled.jpg)
+![With the target set, every management component resolves to a current-to-target path and reads Ready for upgrade](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-03-management-upgrade-upgrade_19-scaled.jpg)
 
-![Selecting all nine components turns the actions into Run Prechecks and Upgrade for the whole set](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-03-management-upgrade-upgrade_13-scaled.jpg)
+![Selecting all nine components turns the actions into Run Prechecks and Upgrade for the whole set](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-03-management-upgrade-upgrade_13-scaled.jpg)
 
-![The confirmation dialog is the commit point. It reminds you to pass prechecks first, which the tool means literally](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-03-management-upgrade-upgrade_14-scaled.jpg)
+![The confirmation dialog is the commit point. It reminds you to pass prechecks first, which the tool means literally](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-03-management-upgrade-upgrade_14-scaled.jpg)
 
-![The Tasks tab breaks the run into named subtasks: set context, stage plugin, run prechecks, stage package, prepare, upgrade, then inventory sync](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-03-management-upgrade-upgrade_21-scaled.jpg)
+![The Tasks tab breaks the run into named subtasks: set context, stage plugin, run prechecks, stage package, prepare, upgrade, then inventory sync](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-03-management-upgrade-upgrade_21-scaled.jpg)
 
-![Back on the Components tab afterward, every management service reads its new target build. This is where I confirm what actually landed](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-03-management-upgrade-upgrade_6-scaled.jpg)
+![Back on the Components tab afterward, every management service reads its new target build. This is where I confirm what actually landed](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-03-management-upgrade-upgrade_6-scaled.jpg)
 
 Two things worth knowing while you are in here. The Components tab in the same view lists every management component with its FQDN, current version, and status. That is where you confirm what you actually have, both before you start and after you finish, rather than trusting that the upgrade did what you asked.
 
@@ -110,7 +110,7 @@ In the wizard, on Select Components and Target Version, choose the component and
 
 In the Upgrade Sequence section, find the component card and click Run Prechecks. Resolve anything it raises. When the card is clean, click Schedule or Start Now, depending on whether you are driving this into a change window later or running it now.
 
-![On the dc3-wld01 workload domain, the Upgrades tab runs its own prechecks before any core component moves. This is the instance-level side, and it only starts after the fleet components are current](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-04-core-upgrade-upgrade_32-scaled.jpg)
+![On the dc3-wld01 workload domain, the Upgrades tab runs its own prechecks before any core component moves. This is the instance-level side, and it only starts after the fleet components are current](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-04-core-upgrade-upgrade_32-scaled.jpg)
 
 
 
@@ -126,13 +126,13 @@ None of this moves without binaries, and in 9.1 they come from the Software Depo
 
 If you are connected to an online depot, the binaries are available directly in the patch planner. There is nothing extra to stage. If you are not connected, which covers dark sites and a lot of real production, you use the VCF Download Tool to pull binaries to an offline depot, or you download in disconnected mode.
 
-![The Software Depot connection mode. Connected pulls from Broadcom online, while Offline Depot and Disconnected cover dark sites](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-05-depot-binaries-upgrade_48-scaled.jpg)
+![The Software Depot connection mode. Connected pulls from Broadcom online, while Offline Depot and Disconnected cover dark sites](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-05-depot-binaries-upgrade_48-scaled.jpg)
 
-![The Register step ties the depot to Broadcom with an activation code. This is the redacted copy of that screen](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-05-depot-binaries-upgrade_47-scaled.jpg)
+![The Register step ties the depot to Broadcom with an activation code. This is the redacted copy of that screen](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-05-depot-binaries-upgrade_47-scaled.jpg)
 
-![The Software Depot overview shows the connected depot and its storage, which is where downloaded bundles live for the patch planner](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-05-depot-binaries-upgrade_49-scaled.jpg)
+![The Software Depot overview shows the connected depot and its storage, which is where downloaded bundles live for the patch planner](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-05-depot-binaries-upgrade_49-scaled.jpg)
 
-![The VCF Installer side of the depot, with the vSphere Foundation and Cloud Foundation bundles already downloaded before any deploy or upgrade](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-05-depot-binaries-upgrade_56-scaled.jpg)
+![The VCF Installer side of the depot, with the vSphere Foundation and Cloud Foundation bundles already downloaded before any deploy or upgrade](https://humbledgeeks.com/wp-content/uploads/2026/07/vcf91-lifecycle-v2-05-depot-binaries-upgrade_56-scaled.jpg)
 
 Two pieces of advice that are boring and will save your evening. Download the binaries before the maintenance window opens. Watching multi-gigabyte bundles crawl in while a change window burns is a bad use of everyone's time, and it is the kind of thing that turns a clean plan into an overrun.
 

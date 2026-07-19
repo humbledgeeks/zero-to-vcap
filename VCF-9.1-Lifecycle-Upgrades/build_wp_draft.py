@@ -85,7 +85,11 @@ for i, rel in enumerate(imgs, 1):
     p = IMG_ROOT / rel
     # upload under a section-qualified filename so the media library stays navigable and
     # collisions with other posts' upgrade_N.jpg are less likely to need WP's -1 suffix
-    fn = f"vcf91-lifecycle-{Path(rel).parent.name}-{p.name}"
+    # The "-v2" generation marker exists because re-uploading after a redaction-policy
+    # change reused the old filenames, so the URLs were identical and Cloudflare kept
+    # serving the stale (redacted) images to readers. Bump this if the image CONTENT
+    # ever changes again; a new URL cannot be served from a stale cache.
+    fn = f"vcf91-lifecycle-v2-{Path(rel).parent.name}-{p.name}"
     ext = p.suffix.lower()
     data = p.read_bytes()
     h = {**HEADERS,
