@@ -22,3 +22,7 @@ _SENSITIVE-DO-NOT-COMMIT/
 VCF-9.1-Lifecycle-Upgrades/images/_inbox/
 VCF-9.1-Lifecycle-Upgrades/images/_orig_backup/
 VCF-9.1-Lifecycle-Upgrades/*-PREVIEW.docx
+
+# Unredacted originals of the three VKS images fixed on 2026-07-19. Public repo,
+# permanent history: keep the pre-redaction copies local.
+vcf-vks/vks-images/_leftover_orig_backup/

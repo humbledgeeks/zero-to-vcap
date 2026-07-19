@@ -24,7 +24,7 @@ GROUND-TRUTH NOTES (read before editing):
   internal hostnames. Several recent lab shots contain plaintext creds.
 ============================================================ -->
 
-I have spent a lot of the *Zero to VCAP* series standing things up: a FlexPod on VCF, licensing it, wiring it into Active Directory, running Kubernetes on it. What I have not written about yet is the part that eats most of your actual calendar once the lab is built, which is keeping the thing current.
+I have spent a lot of the *Zero to VCAP* series standing things up: [a FlexPod on VCF](https://humbledgeeks.com/automating-a-cisco-ucs-flexpod-with-netapp-asa-a30-on-broadcom-vcf/), [licensing it](https://humbledgeeks.com/licensing-my-flexpod-cisco-ucs-netapp-broadcom-vcf-91-deployment/), [wiring it into Active Directory](https://humbledgeeks.com/connecting-my-flexpod-vcf-91-deployment-to-active-directory-vcf-single-sign-on/), [running Kubernetes on it](https://humbledgeeks.com/running-doom-on-kubernetes-vsphere-kubernetes-service-vks-on-my-flexpod-vcf-91/). What I have not written about yet is the part that eats most of your actual calendar once the lab is built, which is keeping the thing current.
 
 So this post is about lifecycle management in VCF 9.1: how the model works now, and why it is a real step up from what I was doing in the VCF 8.0 U3 and 5.x days.
 
@@ -50,7 +50,7 @@ The practical result was two consoles, two binary repositories, two sets of prec
 
 ![SDDC Manager Binary Management, where I pulled the core bundles for vCenter, NSX, ESX, and SDDC Manager itself before any of it moved into VCF Operations](../images/01-old-way/upgrade_1.jpg)
 
-One more piece of context from this era, because it explains a change you will notice. vSphere Lifecycle Manager baselines still existed then. VCF 9.0 removed baseline support in favor of single image management, and it retired a batch of other long-serving features at the same time: Enhanced Linked Mode, Integrated Windows Authentication, Storage IO Control, Host Profiles, and vVols. If you are coming from an older design that leaned on any of those, that is its own planning conversation.
+One more piece of context from this era, because it explains a change you will notice. vSphere Lifecycle Manager baselines still existed then. [VCF 9.0 removed baseline support](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-0/release-notes/vmware-cloud-foundation-90-release-notes/platform-product-support-notes/product-support-notes-vsphere.html) in favor of single image management, and it retired a batch of other long-serving features at the same time: Enhanced Linked Mode, Integrated Windows Authentication, Storage IO Control, Host Profiles, and vVols. If you are coming from an older design that leaned on any of those, that is its own planning conversation.
 
 ---
 
@@ -64,7 +64,7 @@ Lifecycle in 9.1 is delivered by two services that run natively inside that clus
 
 The second is SDDC Lifecycle, which owns the instance-level core components: vCenter, NSX, ESXi hosts, and vSAN. That is the SDDC Manager lineage.
 
-Both services are driven from the VCF Operations console, under Build > Lifecycle. The Software Depot also runs as a component in the same cluster, so binary management is centralized instead of duplicated across two tools.
+Both services are driven from the VCF Operations console, under [Build > Lifecycle](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-1/lifecycle-management.html). The Software Depot also runs as a component in the same cluster, so binary management is centralized instead of duplicated across two tools.
 
 ![The VCF Management components list in VCF Operations. Fleet lifecycle, SDDC lifecycle, Software depot, Identity broker, and Salt each show up as their own service with an FQDN and version, which is the whole architecture in one screen](../images/02-architecture/upgrade_45.jpg)
 
@@ -185,13 +185,13 @@ SDDC Manager is still in the flow, which trips people who read "one console" too
 
 Two more that live in the networking weeds. VCF Services Runtime uses an internal 198.18.0.0/15 range, and you need to make sure that does not overlap with your management network. If it does, you can change it to 240.0.0.0/15 or 250.0.0.0/15 through the JSON deployment spec, but you want to catch that before deployment, not after.
 
-Last, do not freehand the path. Broadcom publishes a VCF Upgrade Planning Tool that generates a tailored upgrade path for your starting point. Start there, then map it against the prerequisites above.
+Last, do not freehand the path. Broadcom publishes a [VCF Upgrade Planning Tool](https://vmware.github.io/vcf-upgrade-planner/) that generates a tailored upgrade path for your starting point. Start there, then map it against the prerequisites above.
 
 ---
 
 ## One known issue worth planning for
 
-One thing to have on your radar: VCF 9.1.0.0 has a documented known issue where fleet lifecycle sub-tasks can stay displayed as In Progress after a workflow has actually completed successfully. The release notes describe it as a display issue with the components fully operational, and the documented workaround is None. Because lifecycle operations serialize, that lingering In Progress state can gate subsequent patch operations, so it is worth knowing before it stops you. I am going to write this one up in more detail in a follow-up post.
+One thing to have on your radar: VCF 9.1.0.0 has a [documented known issue](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-1/release-notes/vmware-cloud-foundation-9-1-0-0-release-notes/known-issues.html) where fleet lifecycle sub-tasks can stay displayed as In Progress after a workflow has actually completed successfully. The release notes describe it as a display issue with the components fully operational, and the documented workaround is None. Because lifecycle operations serialize, that lingering In Progress state can gate subsequent patch operations, so it is worth knowing before it stops you. I am going to write this one up in more detail in a follow-up post.
 
 ---
 
